@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohammad Shah Alam (@saroven) — Software Engineer at Quant Fintech Limited</title>
-  <meta name="description" content="Portfolio of Mohammad Shah Alam (saroven). Software Engineer at Quant Fintech Limited. B.Sc. in CSE from Green University of Bangladesh. Full-Stack and Systems Engineering.">
+  <meta name="description" content="Portfolio of Mohammad Shah Alam (saroven). Software Engineer at Quant Fintech Limited. B.Sc. in CSE from Green University of Bangladesh. Full-Stack and High-Throughput Backend Systems Engineering.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
@@ -12,18 +12,18 @@
 </head>
 <body class="kinetic-app">
 
-  <!-- Interactive 60FPS Kinetic Background Physics Canvas -->
+  <!-- 60FPS Kinetic Physics Background Canvas -->
   <canvas id="kinetic-canvas"></canvas>
 
-  <!-- Mouse Spotlight Orb (Following Cursor) -->
+  <!-- Mouse Light Orb -->
   <div id="pointer-light" class="pointer-light"></div>
 
-  <!-- HUD Top Bar -->
+  <!-- Cockpit HUD Navigation -->
   <header class="hud-nav">
     <div class="hud-container">
 
       <!-- Brand Identity -->
-      <div class="hud-brand">
+      <a href="#overview" class="hud-brand" title="Mohammad Shah Alam — Cockpit Station">
         <div class="monogram-pulse">
           <span class="pulse-ring"></span>
           <span class="monogram-core">SA</span>
@@ -33,30 +33,36 @@
             <span class="name">Mohammad Shah Alam</span>
             <span class="verified-glyph" title="Software Engineer">✓</span>
           </div>
-          <span class="brand-role">Software Engineer @ Quant Fintech Limited</span>
+          <span class="brand-role">Software Engineer · Quant Fintech</span>
         </div>
-      </div>
+      </a>
 
-      <!-- Live Interactive Controls -->
+      <!-- Navigation Anchors -->
+      <nav class="cockpit-nav-links" aria-label="Sections">
+        <a href="#overview" class="c-link active">Overview</a>
+        <a href="#architecture" class="c-link">Architecture</a>
+        <a href="#systems" class="c-link">Case Studies</a>
+        <a href="#arsenal" class="c-link">Stack</a>
+        <a href="#chronology" class="c-link">Mission Log</a>
+      </nav>
+
+      <!-- Live Controls -->
       <div class="hud-controls">
-        <!-- Sound Synthesis Switch -->
         <button id="sound-btn" class="hud-action-btn" title="Toggle Synthesized Mechanical Haptics">
           <span class="sound-icon">🔊</span>
           <span class="sound-label">Audio: ON</span>
         </button>
 
-        <!-- Command Palette Trigger -->
-        <button id="cmd-palette-btn" class="hud-action-btn cmd-btn">
+        <button id="cmd-palette-btn" class="hud-action-btn cmd-btn" title="Open Command Deck (⌘K / Ctrl+K)">
           <span class="kbd-pill">⌘K</span>
-          <span>Command Deck</span>
+          <span>Deck</span>
         </button>
 
-        <!-- Live Status Pill -->
-        <div class="hud-status-pill">
+        <div class="hud-status-pill" title="Station: Quant Fintech Limited, Dhaka">
           <span class="radar-dot"></span>
-          <span class="status-txt">Quant Fintech Ltd · Dhaka</span>
+          <span class="status-txt">Quant Fintech</span>
         </div>
-        <div class="hud-clock" id="hud-clock">02:00:00 UTC+6</div>
+        <div class="hud-clock" id="hud-clock">02:30:00 UTC+6</div>
       </div>
 
     </div>
@@ -66,10 +72,11 @@
   <main class="hud-main">
 
     <!-- ============================================================== -->
-    <!-- 1. HERO COCKPIT & CRAZY ARCHITECTURAL SHOWCASE                 -->
+    <!-- 1. HERO COCKPIT (THE SIGNATURE CORE)                           -->
     <!-- ============================================================== -->
-    <section class="cockpit-hero">
+    <section id="overview" class="cockpit-hero">
 
+      <!-- Left Hero Cockpit Card -->
       <div class="cockpit-left tilt-card" data-tilt>
         <div class="card-spotlight"></div>
         <div class="hero-id-strip">
@@ -84,18 +91,24 @@
           <div class="hero-id-text">
             <div class="identity-badge">
               <span class="badge-dot"></span>
-              <span>Software Engineer · Fintech & Systems</span>
+              <span>Software Engineer · High-Throughput Fintech</span>
             </div>
             <h1 class="glitch-name">Mohammad Shah Alam</h1>
-            <p class="hero-creds">
-              Software Engineer at <strong>Quant Fintech Limited</strong>.<br>
-              B.Sc. in Computer Science & Engineering from <strong>Green University of Bangladesh</strong>.
-            </p>
+            <div class="hero-creds-cluster">
+              <div class="cred-row">
+                <span class="cred-badge">ENTERPRISE</span>
+                <span class="cred-desc">Software Engineer at <strong>Quant Fintech Limited</strong> <span class="cred-sub">(Dilkusha, Motijheel, Dhaka)</span></span>
+              </div>
+              <div class="cred-row">
+                <span class="cred-badge">ACADEMIC</span>
+                <span class="cred-desc">B.Sc. in Computer Science & Engineering · <strong>Green University of Bangladesh</strong></span>
+              </div>
+            </div>
           </div>
         </div>
 
         <p class="hero-mission">
-          Architecting fault-tolerant financial ledgers, high-throughput queue processors, and ultra-reactive full-stack web applications.
+          Architecting fault-tolerant financial ledgers, zero-memory-leak streaming export pipelines, and ultra-reactive distributed web applications.
         </p>
 
         <!-- Social Transmission Links -->
@@ -122,18 +135,17 @@
         </div>
       </div>
 
-      <!-- LIVE SYSTEM ARCHITECTURE TELEMETRY RADAR (Right Side) -->
-      <div class="cockpit-right tilt-card" data-tilt>
+      <!-- Right Live System Architecture Telemetry Radar -->
+      <div id="architecture" class="cockpit-right tilt-card" data-tilt>
         <div class="card-spotlight"></div>
         <div class="radar-top">
           <div class="radar-badge">
             <span class="live-beacon"></span>
-            <span>Live Transaction & Architecture Simulation</span>
+            <span>Live System Architecture & Transaction Telemetry</span>
           </div>
           <span class="telemetry-speed" id="qps-meter">124,500 TX/SEC</span>
         </div>
 
-        <!-- Interactive System Pipeline Canvas -->
         <div class="pipeline-viewport">
           <canvas id="architecture-pipeline-canvas" width="620" height="230"></canvas>
           <div class="pipeline-hud-overlay">
@@ -145,7 +157,6 @@
           </div>
         </div>
 
-        <!-- Burst Trigger Button -->
         <div class="radar-actions">
           <button id="trigger-burst-btn" class="burst-trigger-btn">
             <span class="btn-flare"></span>
@@ -193,7 +204,7 @@
     <!-- ============================================================== -->
     <!-- 3. PRODUCTION SYSTEMS & CASE STUDIES                           -->
     <!-- ============================================================== -->
-    <section class="showcase-section">
+    <section id="systems" class="showcase-section">
       <div class="section-lead">
         <span class="lead-tag">// PRODUCTION ENGINEERING & SYSTEMS</span>
         <h2 class="lead-title">Core Architecture & Case Studies</h2>
@@ -286,9 +297,9 @@
     </section>
 
     <!-- ============================================================== -->
-    <!-- 4. FULL-STACK TECHNICAL ARSENAL (INTERACTIVE MATRIX)           -->
+    <!-- 4. FULL-STACK TECHNICAL ARSENAL                                -->
     <!-- ============================================================== -->
-    <section class="arsenal-section">
+    <section id="arsenal" class="arsenal-section">
       <div class="section-lead">
         <span class="lead-tag">// FULL-STACK ECOSYSTEM</span>
         <h2 class="lead-title">Technical Competencies & Tooling</h2>
@@ -415,14 +426,85 @@
       </div>
     </section>
 
+    <!-- ============================================================== -->
+    <!-- 5. ENGINEERING CHRONOLOGY & MISSION LOG                        -->
+    <!-- ============================================================== -->
+    <section id="chronology" class="chronology-section">
+      <div class="section-lead">
+        <span class="lead-tag">// CAREER TIMELINE & CONTINUOUS SHIPPING</span>
+        <h2 class="lead-title">Engineering Mission Log (2017 — Present)</h2>
+        <p class="lead-desc">Chronological progression across enterprise fintech, academic milestones, and open-source contributions.</p>
+      </div>
+
+      <div class="cockpit-timeline">
+
+        <!-- 2023 - Present: Quant Fintech Limited -->
+        <div class="timeline-entry tilt-card" data-tilt>
+          <div class="card-spotlight"></div>
+          <div class="t-badge current">ACTIVE MISSION</div>
+          <div class="t-time">2023 — Present</div>
+          <h3 class="t-title">Software Engineer · Quant Fintech Limited</h3>
+          <p class="t-desc">
+            Developing core financial ledgers, transactional clearing modules, and settlement engines at Dilkusha, Motijheel, Dhaka. Implementing high-concurrency event listeners, automated reconciliation, and modular Laravel architectures.
+          </p>
+          <div class="t-tags">
+            <span>Laravel</span><span>MySQL</span><span>Docker</span><span>ACID Ledger</span><span>DDD</span>
+          </div>
+        </div>
+
+        <!-- 2024: laravel-reportify -->
+        <div class="timeline-entry tilt-card" data-tilt>
+          <div class="card-spotlight"></div>
+          <div class="t-badge ship">OPEN SOURCE SHIPMENT</div>
+          <div class="t-time">2024</div>
+          <h3 class="t-title">Shipped <code>laravel-reportify</code> Engine</h3>
+          <p class="t-desc">
+            Published unified, queue-driven streaming export package for Laravel on Packagist and GitHub. Enabled zero-memory-leak streaming exports across PDF, Excel, CSV, and ZIP formats for large datasets.
+          </p>
+          <div class="t-tags">
+            <span>PHP</span><span>Packagist</span><span>Queue Workers</span><span>Streaming</span>
+          </div>
+        </div>
+
+        <!-- Academic Milestone: Green University of Bangladesh -->
+        <div class="timeline-entry tilt-card" data-tilt>
+          <div class="card-spotlight"></div>
+          <div class="t-badge edu">ACADEMIC DEGREE</div>
+          <div class="t-time">Graduation</div>
+          <h3 class="t-title">B.Sc. in Computer Science and Engineering</h3>
+          <p class="t-desc">
+            Completed Bachelor of Science in CSE from <strong>Green University of Bangladesh</strong>. Rigorous training in software engineering methodologies, database architectures, data structures, and algorithms.
+          </p>
+          <div class="t-tags">
+            <span>Green University</span><span>CSE</span><span>Data Structures</span><span>Algorithms</span>
+          </div>
+        </div>
+
+        <!-- 2017: First Commit -->
+        <div class="timeline-entry tilt-card" data-tilt>
+          <div class="card-spotlight"></div>
+          <div class="t-badge genesis">GENESIS PROTOCOL</div>
+          <div class="t-time">Nov 11, 2017</div>
+          <h3 class="t-title">Joined GitHub & Started Continuous Shipping</h3>
+          <p class="t-desc">
+            Pushed first open-source commits, building web applications, Bangla computational linguistic engines (Sobdojot), and interactive software. Amassed over 1,720+ lifetime GitHub contributions.
+          </p>
+          <div class="t-tags">
+            <span>1,721+ Commits</span><span>Developer Program</span><span>GitHub</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-  <!-- Interactive Floating Command Palette Modal (⌘K) -->
+  <!-- Command Deck Modal (⌘K) -->
   <div id="cmd-modal" class="cmd-modal-backdrop">
     <div class="cmd-dialog">
       <div class="cmd-input-wrap">
         <span class="cmd-prompt-glyph">λ</span>
-        <input type="text" id="cmd-input" placeholder="Type a command or jump to section (e.g. 'burst', 'github', 'fintech', 'contact')..." autocomplete="off">
+        <input type="text" id="cmd-input" placeholder="Type command or jump to section (e.g. 'burst', 'arsenal', 'github', 'email')..." autocomplete="off">
         <span class="cmd-esc-hint">ESC to close</span>
       </div>
       <div class="cmd-results" id="cmd-results">
@@ -431,19 +513,29 @@
           <span class="cmd-text">Inject 100k Transaction Burst Simulation</span>
           <span class="cmd-badge">Action</span>
         </div>
-        <div class="cmd-item" data-action="quant">
-          <span class="cmd-icon">🏢</span>
-          <span class="cmd-text">Quant Fintech Limited Enterprise Architecture</span>
-          <span class="cmd-badge">Jump</span>
+        <div class="cmd-item" data-jump="#overview">
+          <span class="cmd-icon">🚀</span>
+          <span class="cmd-text">Jump to Cockpit Overview</span>
+          <span class="cmd-badge">Nav</span>
         </div>
-        <div class="cmd-item" data-action="reportify">
-          <span class="cmd-icon">📦</span>
-          <span class="cmd-text">laravel-reportify Package Details</span>
-          <span class="cmd-badge">Jump</span>
+        <div class="cmd-item" data-jump="#systems">
+          <span class="cmd-icon">🏢</span>
+          <span class="cmd-text">Quant Fintech Limited & laravel-reportify Systems</span>
+          <span class="cmd-badge">Nav</span>
+        </div>
+        <div class="cmd-item" data-jump="#arsenal">
+          <span class="cmd-icon">🛠️</span>
+          <span class="cmd-text">Technical Arsenal & Stack Matrix</span>
+          <span class="cmd-badge">Nav</span>
+        </div>
+        <div class="cmd-item" data-jump="#chronology">
+          <span class="cmd-icon">📜</span>
+          <span class="cmd-text">Mission Log (Green University & Career)</span>
+          <span class="cmd-badge">Nav</span>
         </div>
         <div class="cmd-item" data-action="github">
           <span class="cmd-icon">🐙</span>
-          <span class="cmd-text">Visit GitHub Profile (@saroven)</span>
+          <span class="cmd-text">Open GitHub Profile (@saroven)</span>
           <span class="cmd-badge">Link</span>
         </div>
         <div class="cmd-item" data-action="email">
@@ -455,24 +547,130 @@
     </div>
   </div>
 
-  <!-- HUD Footer -->
+  <!-- HUD Cockpit Footer Console -->
   <footer class="hud-footer">
     <div class="hud-footer-inner">
-      <div class="footer-col-left">
-        <strong>Mohammad Shah Alam</strong>
-        <span>Software Engineer at Quant Fintech Limited</span>
-        <span>B.Sc. CSE · Green University of Bangladesh · Dhaka</span>
-      </div>
-      <div class="footer-col-right">
-        <span>© 2026 @saroven · Crafted with Pure Web Physics & Audio Synthesis</span>
-        <div class="footer-pills">
-          <span>1,721+ Commits</span>
-          <span>•</span>
-          <span>Zero AI Slop</span>
-          <span>•</span>
-          <span>60 FPS Kinetic Canvas</span>
+
+      <!-- Telemetry Marquee Header -->
+      <div class="footer-telemetry-strip">
+        <div class="telemetry-chip">
+          <span class="chip-beacon online"></span>
+          <span>COCKPIT STATION // ONLINE</span>
+        </div>
+        <div class="telemetry-chip">
+          <span class="chip-tag">LATENCY</span>
+          <span>P99 &lt;1.2ms</span>
+        </div>
+        <div class="telemetry-chip">
+          <span class="chip-tag">NODE</span>
+          <span>DHAKA, BANGLADESH (UTC+6)</span>
+        </div>
+        <div class="telemetry-chip">
+          <span class="chip-tag">CORPUS</span>
+          <span>1,721+ LIFETIME COMMITS</span>
+        </div>
+        <div class="telemetry-chip">
+          <span class="chip-tag">SLA</span>
+          <span>99.99% FAULT-TOLERANT</span>
         </div>
       </div>
+
+      <!-- 4-Column Operations Deck Grid -->
+      <div class="footer-grid">
+
+        <!-- Column 1: Engineering Identity -->
+        <div class="footer-col brand-col">
+          <div class="footer-brand-lockup">
+            <div class="monogram-pulse small">
+              <span class="pulse-ring"></span>
+              <span class="monogram-core">SA</span>
+            </div>
+            <div>
+              <div class="f-name">Mohammad Shah Alam</div>
+              <div class="f-title">Software Engineer @ Quant Fintech Limited</div>
+            </div>
+          </div>
+          <p class="f-bio">
+            Designing fault-tolerant double-entry financial ledgers, streaming queue workers, and reactive distributed platforms. Dedicated to zero-overhead engineering and mathematical precision.
+          </p>
+          <div class="f-credentials-chips">
+            <span class="f-chip">B.Sc. CSE Green University</span>
+            <span class="f-chip">1,721+ Commits</span>
+            <span class="f-chip">Packagist Engine Author</span>
+          </div>
+        </div>
+
+        <!-- Column 2: Cockpit Systems Directory -->
+        <div class="footer-col">
+          <div class="f-col-header">// NAVIGATION RADAR</div>
+          <ul class="f-link-list">
+            <li><a href="#overview" class="f-link"><span>01</span> Cockpit Telemetry Overview</a></li>
+            <li><a href="#architecture" class="f-link"><span>02</span> High-Velocity Pipeline Radar</a></li>
+            <li><a href="#systems" class="f-link"><span>03</span> Production Case Studies</a></li>
+            <li><a href="#arsenal" class="f-link"><span>04</span> Technical Arsenal Matrix</a></li>
+            <li><a href="#chronology" class="f-link"><span>05</span> Career & University Mission Log</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Shipped Architecture -->
+        <div class="footer-col">
+          <div class="f-col-header">// SHIPPED ARCHITECTURE</div>
+          <ul class="f-link-list">
+            <li><a href="#systems" class="f-link"><span>⚡</span> Quant Fintech Reconciliation Ledger</a></li>
+            <li><a href="https://packagist.org/packages/saroven/reportify" target="_blank" rel="noopener" class="f-link"><span>📦</span> laravel-reportify (Packagist) ↗</a></li>
+            <li><a href="#systems" class="f-link"><span>💬</span> Real-Time WebSockets Engine</a></li>
+            <li><a href="#systems" class="f-link"><span>📚</span> Sobdojot 37k Bangla NLP Corpus</a></li>
+            <li><a href="https://github.com/saroven?tab=repositories" target="_blank" rel="noopener" class="f-link"><span>📂</span> 51+ Open Source Repositories ↗</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Comms & Transmissions Deck -->
+        <div class="footer-col comms-col">
+          <div class="f-col-header">// DIRECT TRANSMISSIONS</div>
+          <div class="f-comms-deck">
+            <a href="https://github.com/saroven" target="_blank" rel="noopener" class="f-deck-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              <span>GitHub (@saroven)</span>
+            </a>
+            <a href="https://linkedin.com/in/saroven" target="_blank" rel="noopener" class="f-deck-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+              <span>LinkedIn (/in/saroven)</span>
+            </a>
+            <a href="https://twitter.com/sarovenbd" target="_blank" rel="noopener" class="f-deck-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              <span>X / Twitter (@sarovenbd)</span>
+            </a>
+            <button id="footer-copy-email-btn" class="f-deck-btn highlight" title="Copy Email to Clipboard">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+              <span id="f-email-text">saroven.dev@gmail.com</span>
+              <span class="f-copy-badge">COPY</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Status & Ascent Deck -->
+      <div class="footer-baseline">
+        <div class="f-base-left">
+          <span>© 2026 <strong>Mohammad Shah Alam</strong>. Continuous Production Shipping.</span>
+          <span class="f-sep">•</span>
+          <span>Motijheel, Dhaka, Bangladesh</span>
+        </div>
+        <div class="f-base-right">
+          <div class="f-meta-pills">
+            <span>60 FPS Kinetic Physics</span>
+            <span>•</span>
+            <span>Zero AI Slop</span>
+            <span>•</span>
+            <span>Cockpit Architecture</span>
+          </div>
+          <button id="back-to-top-btn" class="back-to-top-btn" title="Return to Top of Cockpit">
+            <span>▲ TOP OF DECK</span>
+          </button>
+        </div>
+      </div>
+
     </div>
   </footer>
 

@@ -84,31 +84,43 @@ body.kinetic-app {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(5, 6, 8, 0.85);
+  background: rgba(5, 6, 8, 0.9);
   backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-subtle);
-  padding: 12px 28px;
+  padding: 10px 24px;
 }
 
 .hud-container {
-  max-width: 1400px;
+  max-width: 1440px;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 16px;
+  flex-wrap: nowrap;
 }
 
 .hud-brand {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
+  text-decoration: none;
+  color: inherit;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .monogram-pulse {
   position: relative;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.monogram-pulse.small {
+  width: 32px;
+  height: 32px;
 }
 
 .monogram-core {
@@ -118,7 +130,7 @@ body.kinetic-app {
   color: #050608;
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: 14px;
+  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -146,44 +158,52 @@ body.kinetic-app {
 .brand-info {
   display: flex;
   flex-direction: column;
+  white-space: nowrap;
+  gap: 1px;
 }
 
 .brand-title {
   display: flex;
   align-items: center;
   gap: 6px;
+  white-space: nowrap;
 }
 
 .brand-title .name {
   font-weight: 700;
-  font-size: 15px;
+  font-size: 14px;
   letter-spacing: -0.01em;
   color: var(--text-pure);
 }
 
 .verified-glyph {
-  font-size: 10px;
+  font-size: 9px;
   color: #050608;
   background: var(--emerald);
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
 }
 
 .brand-role {
-  font-size: 12px;
+  font-size: 11px;
   color: var(--emerald);
   font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
 }
 
 .hud-controls {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .hud-action-btn {
@@ -193,13 +213,14 @@ body.kinetic-app {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 600;
-  padding: 6px 12px;
+  padding: 6px 11px;
   border-radius: 6px;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 6px;
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 
 .hud-action-btn:hover {
@@ -218,14 +239,16 @@ body.kinetic-app {
 .hud-status-pill {
   display: flex;
   align-items: center;
-  gap: 8px;
-  font-size: 12px;
-  font-weight: 500;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
   color: var(--emerald);
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
-  padding: 5px 12px;
+  padding: 5px 11px;
   border-radius: 9999px;
+  white-space: nowrap;
 }
 
 .radar-dot {
@@ -244,8 +267,10 @@ body.kinetic-app {
 
 .hud-clock {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--text-muted);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
 }
 
 /* 3. Main HUD Viewport */
@@ -367,17 +392,18 @@ body.kinetic-app {
 .identity-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--emerald);
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.25);
   padding: 3px 10px;
   border-radius: 9999px;
-  margin-bottom: 10px;
+  width: fit-content;
+  margin-bottom: 6px;
 }
 
 .badge-dot {
@@ -390,22 +416,57 @@ body.kinetic-app {
 
 .glitch-name {
   font-family: var(--font-display);
-  font-size: 38px;
+  font-size: clamp(28px, 3.2vw, 38px);
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: 1.1;
   color: #ffffff;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
-.hero-creds {
-  font-size: 14px;
+.hero-creds-cluster {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cred-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--text-muted);
-  line-height: 1.6;
 }
 
-.hero-creds strong {
+.cred-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  color: var(--emerald);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.cred-desc {
+  color: var(--text-muted);
+}
+
+.cred-desc strong {
   color: var(--text-pure);
+}
+
+.cred-sub {
+  color: var(--text-dim);
+  font-size: 11px;
+  font-family: var(--font-mono);
+  display: inline-block;
+  margin-left: 2px;
 }
 
 .hero-mission {
@@ -932,59 +993,449 @@ body.kinetic-app {
   color: var(--text-dim);
 }
 
-/* 11. HUD Footer */
-.hud-footer {
-  border-top: 1px solid var(--border-subtle);
-  padding: 32px 28px;
-}
-
-.hud-footer-inner {
-  max-width: 1400px;
-  margin: 0 auto;
+/* ==========================================================================
+   12. COCKPIT NAVIGATION & CHRONOLOGY TIMELINE
+   ========================================================================== */
+.cockpit-nav-links {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 13px;
-  color: var(--text-muted);
+  gap: 3px;
+  background: rgba(18, 23, 33, 0.75);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 6px;
+  border-radius: 9999px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
-.footer-col-left {
+.c-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.c-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.c-link.active {
+  background: #ffffff;
+  color: #050608;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.25);
+}
+
+/* Chronology & Mission Log */
+.chronology-section {
+  margin-bottom: 56px;
+}
+
+.cockpit-timeline {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 16px;
 }
 
-.footer-col-left strong {
+.timeline-entry {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-left: 3px solid var(--border-subtle);
+  transition: all 0.2s var(--ease-spring);
+}
+
+.timeline-entry:hover {
+  border-left-color: var(--emerald);
+  transform: translateX(4px);
+}
+
+.t-badge {
+  display: inline-block;
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.t-badge.current {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.t-badge.ship {
+  background: rgba(6, 182, 212, 0.15);
+  color: #00f2fe;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+.t-badge.edu {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.t-badge.genesis {
+  background: rgba(139, 92, 246, 0.15);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.t-time {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.t-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
   color: #ffffff;
 }
 
-.footer-col-right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 4px;
+.t-title code {
+  font-family: var(--font-mono);
+  color: var(--emerald-neon);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 6px;
+  border-radius: 4px;
 }
 
-.footer-pills {
+.t-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.t-tags {
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.t-tags span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   13. COCKPIT CONSOLE FOOTER TERMINAL
+   ========================================================================== */
+.hud-footer {
+  position: relative;
+  z-index: 10;
+  background: #040507;
+  border-top: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: 0 -15px 50px rgba(0, 0, 0, 0.8), 0 -1px 20px rgba(16, 185, 129, 0.08);
+  margin-top: 70px;
+  overflow: hidden;
+}
+
+.hud-footer-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 44px 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+}
+
+/* Telemetry Strip */
+.footer-telemetry-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: rgba(13, 16, 22, 0.7);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+}
+
+.telemetry-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.chip-beacon.online {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--emerald);
+  box-shadow: 0 0 8px var(--emerald);
+  animation: radarBlink 1.5s infinite;
+}
+
+.chip-tag {
+  color: var(--emerald);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* 4-Column Grid */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1.15fr 1.1fr;
+  gap: 36px;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-brand-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.f-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.f-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--emerald);
+}
+
+.f-bio {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.f-credentials-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.f-chip {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.f-col-header {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--emerald);
+  margin-bottom: 2px;
+}
+
+.f-link-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+.f-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: all 0.15s ease;
+}
+
+.f-link span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  width: 16px;
+  display: inline-block;
+}
+
+.f-link:hover {
+  color: #ffffff;
+  transform: translateX(4px);
+}
+
+.f-link:hover span {
+  color: var(--emerald);
+}
+
+.f-comms-deck {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.f-deck-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-main);
+  font-size: 12px;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.f-deck-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.f-deck-btn.highlight {
+  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(16, 185, 129, 0.08);
+}
+
+.f-deck-btn.highlight:hover {
+  border-color: var(--emerald);
+  background: rgba(16, 185, 129, 0.18);
+}
+
+.f-copy-badge {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--emerald);
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+/* Baseline Bar */
+.footer-baseline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 24px;
+  font-size: 12px;
+  color: var(--text-muted);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.f-base-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.f-base-left strong {
+  color: var(--text-pure);
+}
+
+.f-sep {
+  color: var(--text-dim);
+}
+
+.f-base-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.f-meta-pills {
+  display: flex;
+  align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
   font-size: 11px;
   color: var(--text-dim);
 }
 
-/* Responsive */
+.back-to-top-btn {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--emerald-neon);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 7px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-spring);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.back-to-top-btn:hover {
+  background: var(--emerald);
+  color: #050608;
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   14. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+@media (max-width: 1280px) {
+  .hud-status-pill { display: none; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+}
+
 @media (max-width: 1024px) {
   .cockpit-hero { grid-template-columns: 1fr; }
   .metrics-strip { grid-template-columns: 1fr 1fr; }
   .cards-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 768px) {
-  .hud-container { flex-direction: column; align-items: flex-start; }
-  .hud-controls { width: 100%; justify-content: space-between; flex-wrap: wrap; }
+  .hud-container { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .hud-controls { width: 100%; justify-content: space-between; }
+  .cockpit-nav-links { overflow-x: auto; max-width: 100%; padding: 4px; }
   .hero-id-strip { flex-direction: column; }
   .metrics-strip { grid-template-columns: 1fr; }
-  .hud-footer-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
-  .footer-col-right { align-items: flex-start; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .footer-telemetry-strip { flex-direction: column; align-items: flex-start; }
+  .footer-baseline { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .f-base-right { width: 100%; justify-content: space-between; }
 }
+
+

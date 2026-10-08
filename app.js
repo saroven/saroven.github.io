@@ -1,7 +1,7 @@
 // ==========================================================================
 // MOHAMMAD SHAH ALAM (@saroven)
 // Software Engineer at Quant Fintech Limited
-// KINETIC SYSTEMS ENGINE & ARCHITECTURE SIMULATOR
+// COCKPIT ARCHITECTURE ENGINE & KINETIC SYSTEMS CONTROLLER
 // ==========================================================================
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -10,8 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
   initGyroscopicTilt();
   initSynthesizedAudio();
   initLiveArchitecturePipeline();
+  initCockpitNavigation();
+  initArsenalFilter();
   initCommandPalette();
-  initArsenalFilters();
+  initFooterActions();
   initCountUps();
   initLiveClock();
 });
@@ -36,7 +38,6 @@ function initKineticPhysicsCanvas() {
     mouse.y = e.clientY;
   });
 
-  // Particle Node Class
   class Particle {
     constructor() {
       this.x = Math.random() * width;
@@ -54,7 +55,6 @@ function initKineticPhysicsCanvas() {
       if (this.x < 0 || this.x > width) this.vx *= -1;
       if (this.y < 0 || this.y > height) this.vy *= -1;
 
-      // Mouse repulsion physics
       const dx = mouse.x - this.x;
       const dy = mouse.y - this.y;
       const dist = Math.sqrt(dx * dx + dy * dy);
@@ -81,7 +81,6 @@ function initKineticPhysicsCanvas() {
   function renderLoop() {
     ctx.clearRect(0, 0, width, height);
 
-    // Draw connecting circuit lines
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
         const dx = particles[i].x - particles[j].x;
@@ -122,7 +121,7 @@ function initPointerSpotlight() {
   });
 }
 
-// 3. 3D GYROSCOPIC PERSPECTIVE TILT & PRISMATIC SPOTLIGHTS
+// 3. 3D GYROSCOPIC PERSPECTIVE TILT
 function initGyroscopicTilt() {
   const tiltCards = document.querySelectorAll('[data-tilt]');
 
@@ -132,15 +131,13 @@ function initGyroscopicTilt() {
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
 
-      // Update spotlight CSS variables
       card.style.setProperty('--mouse-x', `${x}px`);
       card.style.setProperty('--mouse-y', `${y}px`);
 
-      // Compute tilt angles
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -6; // Max 6 deg
-      const rotateY = ((x - centerX) / centerX) * 6;  // Max 6 deg
+      const rotateX = ((y - centerY) / centerY) * -6;
+      const rotateY = ((x - centerX) / centerX) * 6;
 
       card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
     });
@@ -202,8 +199,8 @@ function initSynthesizedAudio() {
     });
   }
 
-  // Bind audio to buttons and interactive cards
-  document.querySelectorAll('button, .mag-btn, .cmd-item').forEach(el => {
+  // Bind subtle micro-haptics to interactive elements
+  document.querySelectorAll('button, .mag-btn, .cmd-item, .c-link, .f-link, .f-deck-btn, .arsenal-tab-btn').forEach(el => {
     el.addEventListener('mouseenter', () => window.playMechanicalClick(1400, 'sine', 0.02));
     el.addEventListener('click', () => window.playMechanicalClick(800, 'triangle', 0.05));
   });
@@ -215,17 +212,17 @@ function initLiveArchitecturePipeline() {
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
 
-  let width = canvas.width = canvas.offsetWidth;
-  let height = canvas.height = canvas.offsetHeight;
+  let width = canvas.width = canvas.offsetWidth || 600;
+  let height = canvas.height = canvas.offsetHeight || 230;
 
   window.addEventListener('resize', () => {
     if (canvas.offsetWidth > 0) {
       width = canvas.width = canvas.offsetWidth;
       height = canvas.height = canvas.offsetHeight;
+      updateNodePositions();
     }
   });
 
-  // Pipeline Topology Coordinates
   const nodes = {
     client: { x: width * 0.08, y: height * 0.46, label: 'Clients' },
     gateway: { x: width * 0.36, y: height * 0.46, label: 'Quant Gateway' },
@@ -234,7 +231,19 @@ function initLiveArchitecturePipeline() {
     database: { x: width * 0.90, y: height * 0.46, label: 'MySQL / Redis' }
   };
 
-  // Connected pathways
+  function updateNodePositions() {
+    nodes.client.x = width * 0.08;
+    nodes.client.y = height * 0.46;
+    nodes.gateway.x = width * 0.36;
+    nodes.gateway.y = height * 0.46;
+    nodes.workers.x = width * 0.64;
+    nodes.workers.y = height * 0.22;
+    nodes.reportify.x = width * 0.64;
+    nodes.reportify.y = height * 0.72;
+    nodes.database.x = width * 0.90;
+    nodes.database.y = height * 0.46;
+  }
+
   const edges = [
     [nodes.client, nodes.gateway],
     [nodes.gateway, nodes.workers],
@@ -243,7 +252,6 @@ function initLiveArchitecturePipeline() {
     [nodes.reportify, nodes.database]
   ];
 
-  // Animated Packets
   class DataPacket {
     constructor(edge, speed = 0.008, color = '#00ffaa') {
       this.edge = edge;
@@ -283,7 +291,6 @@ function initLiveArchitecturePipeline() {
   function drawPipeline() {
     ctx.clearRect(0, 0, width, height);
 
-    // Draw conduit cables
     edges.forEach(([start, end]) => {
       ctx.beginPath();
       ctx.moveTo(start.x, start.y);
@@ -292,7 +299,6 @@ function initLiveArchitecturePipeline() {
       ctx.lineWidth = 2;
       ctx.stroke();
 
-      // Flow pulse line
       ctx.beginPath();
       ctx.moveTo(start.x, start.y);
       ctx.lineTo(end.x, end.y);
@@ -303,7 +309,6 @@ function initLiveArchitecturePipeline() {
       ctx.setLineDash([]);
     });
 
-    // Draw Node Centers
     Object.values(nodes).forEach(n => {
       ctx.beginPath();
       ctx.arc(n.x, n.y, 6, 0, Math.PI * 2);
@@ -320,7 +325,6 @@ function initLiveArchitecturePipeline() {
       ctx.stroke();
     });
 
-    // Draw & update packets
     packets.forEach(p => {
       p.update();
       p.draw();
@@ -331,7 +335,6 @@ function initLiveArchitecturePipeline() {
 
   drawPipeline();
 
-  // Burst Simulator Button Handler
   const burstBtn = document.getElementById('trigger-burst-btn');
   const qpsMeter = document.getElementById('qps-meter');
   const latencyMeter = document.getElementById('burst-latency');
@@ -340,13 +343,11 @@ function initLiveArchitecturePipeline() {
     burstBtn.addEventListener('click', () => {
       window.playMechanicalClick(1600, 'sawtooth', 0.15);
 
-      // Spawn 40 high-speed hyper-drive packets
       for (let i = 0; i < 40; i++) {
         const e = edges[Math.floor(Math.random() * edges.length)];
         packets.push(new DataPacket(e, 0.035 + Math.random() * 0.02, '#00f2fe'));
       }
 
-      // Temporarily rev up QPS readout
       if (qpsMeter) {
         qpsMeter.textContent = '892,400 TX/SEC 🔥';
         qpsMeter.style.color = '#00f2fe';
@@ -356,7 +357,6 @@ function initLiveArchitecturePipeline() {
       }
 
       setTimeout(() => {
-        // Return to normal
         packets.splice(22);
         if (qpsMeter) {
           qpsMeter.textContent = '124,500 TX/SEC';
@@ -370,7 +370,81 @@ function initLiveArchitecturePipeline() {
   }
 }
 
-// 6. COMMAND PALETTE MODAL (⌘K)
+// 6. COCKPIT NAVIGATION & SMOOTH SCROLL SPY
+function initCockpitNavigation() {
+  const navLinks = document.querySelectorAll('.cockpit-nav-links .c-link');
+  const sections = document.querySelectorAll('main > section');
+
+  // Smooth click scroll
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const targetId = link.getAttribute('href');
+      if (targetId && targetId !== '#') {
+        const targetEl = document.querySelector(targetId);
+        if (targetEl) {
+          e.preventDefault();
+          targetEl.scrollIntoView({ behavior: 'smooth' });
+          if (window.playMechanicalClick) window.playMechanicalClick(1000, 'sine', 0.04);
+        }
+      }
+    });
+  });
+
+  // Intersection Observer for active scroll-spy
+  const observerOptions = {
+    root: null,
+    rootMargin: '-20% 0px -60% 0px',
+    threshold: 0
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        if (!id) return;
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === `#${id}`) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach(s => observer.observe(s));
+}
+
+// 7. ARSENAL MATRIX CATEGORY FILTER
+function initArsenalFilter() {
+  const filterBtns = document.querySelectorAll('.arsenal-tab-btn');
+  const toolCells = document.querySelectorAll('.tool-cell');
+
+  if (!filterBtns.length || !toolCells.length) return;
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.getAttribute('data-filter');
+      window.playMechanicalClick(1150, 'triangle', 0.04);
+
+      toolCells.forEach(cell => {
+        const cat = cell.getAttribute('data-cat');
+        if (filter === 'all' || cat === filter) {
+          cell.style.display = 'flex';
+          cell.style.animation = 'fadeIn 0.25s ease';
+        } else {
+          cell.style.display = 'none';
+        }
+      });
+    });
+  });
+}
+
+// 8. COMMAND PALETTE MODAL (⌘K / Ctrl+K)
 function initCommandPalette() {
   const modal = document.getElementById('cmd-modal');
   const cmdBtn = document.getElementById('cmd-palette-btn');
@@ -382,8 +456,9 @@ function initCommandPalette() {
   function openPalette() {
     modal.classList.add('open');
     input.value = '';
+    filterItems('');
     input.focus();
-    window.playMechanicalClick(1100, 'sine', 0.04);
+    if (window.playMechanicalClick) window.playMechanicalClick(1100, 'sine', 0.04);
   }
 
   function closePalette() {
@@ -392,7 +467,6 @@ function initCommandPalette() {
 
   if (cmdBtn) cmdBtn.addEventListener('click', openPalette);
 
-  // Global ⌘K or Ctrl+K
   window.addEventListener('keydown', (e) => {
     if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
       e.preventDefault();
@@ -405,54 +479,84 @@ function initCommandPalette() {
     if (e.target === modal) closePalette();
   });
 
-  // Action mapping
+  function filterItems(query) {
+    if (!results) return;
+    const items = results.querySelectorAll('.cmd-item');
+    const q = query.toLowerCase().trim();
+    items.forEach(item => {
+      const text = item.textContent.toLowerCase();
+      item.style.display = text.includes(q) ? 'flex' : 'none';
+    });
+  }
+
+  input.addEventListener('input', (e) => {
+    filterItems(e.target.value);
+  });
+
   if (results) {
     results.querySelectorAll('.cmd-item').forEach(item => {
       item.addEventListener('click', () => {
+        const jump = item.getAttribute('data-jump');
         const action = item.getAttribute('data-action');
         closePalette();
 
-        if (action === 'burst') {
+        if (jump) {
+          const targetEl = document.querySelector(jump);
+          if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
+          if (window.playMechanicalClick) window.playMechanicalClick(1200, 'sine', 0.04);
+        } else if (action === 'burst') {
           const burstBtn = document.getElementById('trigger-burst-btn');
-          if (burstBtn) burstBtn.click();
-        } else if (action === 'quant') {
-          window.scrollTo({ top: 500, behavior: 'smooth' });
-        } else if (action === 'reportify') {
-          window.scrollTo({ top: 750, behavior: 'smooth' });
+          if (burstBtn) {
+            burstBtn.scrollIntoView({ behavior: 'smooth' });
+            burstBtn.click();
+          }
         } else if (action === 'github') {
           window.open('https://github.com/saroven', '_blank');
         } else if (action === 'email') {
           navigator.clipboard.writeText('saroven.dev@gmail.com');
-          alert('Email copied: saroven.dev@gmail.com');
+          alert('Copied to clipboard: saroven.dev@gmail.com');
         }
       });
     });
   }
 }
 
-// 7. ARSENAL FILTER BUTTONS
-function initArsenalFilters() {
-  const tabs = document.querySelectorAll('.arsenal-tab-btn');
-  const cells = document.querySelectorAll('.tool-cell');
+// 9. FOOTER ACTIONS (BACK TO TOP & CLIPBOARD)
+function initFooterActions() {
+  const topBtn = document.getElementById('back-to-top-btn');
+  if (topBtn) {
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (window.playMechanicalClick) window.playMechanicalClick(1400, 'triangle', 0.06);
+    });
+  }
 
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
+  const copyBtn = document.getElementById('footer-copy-email-btn');
+  const badge = copyBtn ? copyBtn.querySelector('.f-copy-badge') : null;
 
-      const filter = tab.getAttribute('data-filter');
-      cells.forEach(cell => {
-        if (filter === 'all' || cell.getAttribute('data-cat') === filter) {
-          cell.style.display = 'flex';
-        } else {
-          cell.style.display = 'none';
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      navigator.clipboard.writeText('saroven.dev@gmail.com').then(() => {
+        if (badge) {
+          badge.textContent = 'COPIED ✓';
+          badge.style.background = 'var(--emerald)';
+          badge.style.color = '#050608';
         }
+        if (window.playMechanicalClick) window.playMechanicalClick(1500, 'sine', 0.08);
+
+        setTimeout(() => {
+          if (badge) {
+            badge.textContent = 'COPY';
+            badge.style.background = 'rgba(16, 185, 129, 0.15)';
+            badge.style.color = 'var(--emerald)';
+          }
+        }, 2500);
       });
     });
-  });
+  }
 }
 
-// 8. ANIMATED NUMERICAL COUNT-UPS
+// 10. ANIMATED NUMERICAL COUNT-UPS
 function initCountUps() {
   const elements = document.querySelectorAll('.count-up');
   elements.forEach(el => {
@@ -473,7 +577,7 @@ function initCountUps() {
   });
 }
 
-// 9. LIVE DHAKA CLOCK
+// 11. LIVE DHAKA CLOCK
 function initLiveClock() {
   const clock = document.getElementById('hud-clock');
   if (!clock) return;
