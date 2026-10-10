@@ -16,8 +16,9 @@
 
   --text-pure: #ffffff;
   --text-main: #e2e8f0;
-  --text-muted: #8b949e;
-  --text-dim: #4b5563;
+  --text-muted: #a1abb8;
+  --text-dim: #6b7686;
+  --blue: #3b82f6;
 
   --emerald: #10b981;
   --emerald-neon: #00ffaa;
@@ -289,7 +290,7 @@ body.kinetic-app {
   backdrop-filter: blur(16px);
   border: 1px solid var(--border-subtle);
   border-radius: 14px;
-  padding: 28px;
+  padding: 32px;
   transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
               border-color 0.25s ease,
               box-shadow 0.25s ease;
@@ -434,8 +435,8 @@ body.kinetic-app {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  font-size: 13px;
-  line-height: 1.45;
+  font-size: 13.5px;
+  line-height: 1.55;
   color: var(--text-muted);
 }
 
@@ -521,128 +522,99 @@ body.kinetic-app {
   box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
 }
 
-/* 6. Live Architecture Telemetry Radar (Cockpit Right) */
+/* 6. Featured project (hero right) */
 .cockpit-right {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   gap: 16px;
   background: radial-gradient(circle at 80% 20%, rgba(6, 182, 212, 0.06), transparent 70%), var(--bg-card);
 }
 
-.radar-top {
+.featured-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.radar-badge {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+.featured-label {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--cyan);
-  text-transform: uppercase;
-}
-
-.live-beacon {
-  width: 7px;
-  height: 7px;
-  background: var(--cyan);
-  border-radius: 50%;
-  box-shadow: 0 0 10px var(--cyan);
-  animation: radarBlink 1s infinite ease-in-out;
-}
-
-.telemetry-speed {
-  font-family: var(--font-mono);
-  font-size: 13px;
   font-weight: 700;
-  color: var(--emerald-neon);
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  padding: 3px 10px;
-  border-radius: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--emerald);
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  padding: 4px 10px;
+  border-radius: 9999px;
 }
 
-.pipeline-viewport {
-  position: relative;
+.featured-link {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.featured-link:hover {
+  color: #fff;
+}
+
+.featured-name {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.featured-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+.featured-code {
   background: #040507;
   border: 1px solid var(--border-subtle);
   border-radius: 10px;
-  overflow: hidden;
-}
-
-#architecture-pipeline-canvas {
-  width: 100%;
-  height: 230px;
-  display: block;
-}
-
-.pipeline-hud-overlay {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.overlay-node {
-  position: absolute;
-  transform: translate(-50%, -50%);
+  padding: 14px 16px;
   font-family: var(--font-mono);
-  font-size: 10px;
-  color: rgba(255, 255, 255, 0.6);
-  background: rgba(10, 14, 22, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 2px 6px;
-  border-radius: 4px;
+  font-size: 13px;
+  color: var(--emerald-neon);
+  overflow-x: auto;
 }
 
-.radar-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-}
-
-.burst-trigger-btn {
-  position: relative;
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-  color: #050608;
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.4);
-  transition: all 0.2s var(--ease-spring);
-  overflow: hidden;
-}
-
-.burst-trigger-btn:hover {
-  transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 0 35px rgba(16, 185, 129, 0.6);
-  background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
-}
-
-.burst-trigger-btn:active {
-  transform: translateY(0) scale(0.98);
-}
-
-.burst-metrics {
+.featured-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 8px;
+}
+
+.featured-points li {
+  font-size: 13.5px;
+  color: var(--text-main);
+  padding-left: 20px;
+  position: relative;
+}
+
+.featured-points li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--emerald);
   font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--text-muted);
-  text-align: right;
+}
+
+.featured-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 4px;
 }
 
 /* 7. Metrics Strip */
@@ -654,7 +626,7 @@ body.kinetic-app {
 }
 
 .metric-block {
-  padding: 22px;
+  padding: 26px;
 }
 
 .m-val {
@@ -674,9 +646,24 @@ body.kinetic-app {
 }
 
 .m-sub {
-  font-size: 11px;
+  font-size: 12.5px;
   color: var(--text-muted);
-  margin-top: 2px;
+  margin-top: 4px;
+  line-height: 1.5;
+}
+
+.gh-sync-note {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin: -20px 0 32px;
+  letter-spacing: 0.02em;
+}
+
+.featured-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-dim);
 }
 
 /* 8. Production Case Studies */
@@ -707,9 +694,10 @@ body.kinetic-app {
 }
 
 .lead-desc {
-  font-size: 14px;
+  font-size: 15px;
   color: var(--text-muted);
   max-width: 680px;
+  line-height: 1.65;
 }
 
 .cards-grid {
@@ -723,7 +711,7 @@ body.kinetic-app {
   flex-direction: column;
   justify-content: space-between;
   gap: 16px;
-  padding: 26px;
+  padding: 30px;
   position: relative;
 }
 
@@ -732,7 +720,8 @@ body.kinetic-app {
   top: 0;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 3px;
+  border-radius: 14px 14px 0 0;
 }
 
 .card-accent-bar.enterprise { background: var(--blue); }
@@ -783,9 +772,9 @@ body.kinetic-app {
 }
 
 .case-body {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .case-body code {
@@ -864,10 +853,10 @@ body.kinetic-app {
 }
 
 .tool-cell {
-  padding: 18px;
+  padding: 22px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
 }
 
 .tool-top {
@@ -892,9 +881,9 @@ body.kinetic-app {
 }
 
 .tool-desc {
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--text-muted);
-  line-height: 1.5;
+  line-height: 1.65;
 }
 
 /* 10. Command Palette Modal (⌘K) */
@@ -1041,20 +1030,53 @@ body.kinetic-app {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  position: relative;
+  padding-left: 28px;
+}
+
+.cockpit-timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 12px;
+  bottom: 12px;
+  width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(180deg, var(--emerald), rgba(6, 182, 212, 0.4), rgba(139, 92, 246, 0.35));
+  opacity: 0.35;
 }
 
 .timeline-entry {
-  padding: 24px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  border-left: 3px solid var(--border-subtle);
+  position: relative;
+  border-left: 1px solid var(--border-subtle);
   transition: all 0.2s var(--ease-spring);
+}
+
+.timeline-entry::before {
+  content: "";
+  position: absolute;
+  left: -27px;
+  top: 30px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg-deep);
+  border: 2px solid var(--emerald);
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.55);
+  transition: background 0.2s ease;
 }
 
 .timeline-entry:hover {
   border-left-color: var(--emerald);
   transform: translateX(4px);
+}
+
+.timeline-entry:hover::before {
+  background: var(--emerald);
 }
 
 .t-badge {
@@ -1093,6 +1115,12 @@ body.kinetic-app {
   border: 1px solid rgba(139, 92, 246, 0.3);
 }
 
+.t-badge.prev {
+  background: rgba(148, 163, 184, 0.14);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+}
+
 .t-time {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -1115,9 +1143,9 @@ body.kinetic-app {
 }
 
 .t-desc {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .t-tags {
@@ -1230,9 +1258,9 @@ body.kinetic-app {
 }
 
 .f-bio {
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 .f-credentials-chips {
@@ -1420,6 +1448,8 @@ body.kinetic-app {
 }
 
 @media (max-width: 1024px) {
+  .hud-status-pill { display: none; }
+  .hud-clock { display: none; }
   .cockpit-hero { grid-template-columns: 1fr; }
   .metrics-strip { grid-template-columns: 1fr 1fr; }
   .cards-grid { grid-template-columns: 1fr; }

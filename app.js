@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFooterActions();
   initCountUps();
   initLiveClock();
+  initGitHubSync();
 });
 
 // 1. KINETIC BACKGROUND PHYSICS CANVAS (60 FPS Particle Mesh)
@@ -123,6 +124,8 @@ function initPointerSpotlight() {
 
 // 3. 3D GYROSCOPIC PERSPECTIVE TILT
 function initGyroscopicTilt() {
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
   const tiltCards = document.querySelectorAll('[data-tilt]');
 
   tiltCards.forEach(card => {
@@ -136,10 +139,10 @@ function initGyroscopicTilt() {
 
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
-      const rotateX = ((y - centerY) / centerY) * -6;
-      const rotateY = ((x - centerX) / centerX) * 6;
+      const rotateX = ((y - centerY) / centerY) * -4;
+      const rotateY = ((x - centerX) / centerX) * 4;
 
-      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.01, 1.01, 1.01)`;
+      card.style.transform = `perspective(1000px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.005, 1.005, 1.005)`;
     });
 
     card.addEventListener('mouseleave', () => {
@@ -192,7 +195,7 @@ function initSynthesizedAudio() {
     soundBtn.addEventListener('click', () => {
       soundEnabled = !soundEnabled;
       if (soundLabel) {
-        soundLabel.textContent = soundEnabled ? 'Audio: ON' : 'Audio: OFF';
+        soundLabel.textContent = soundEnabled ? 'Sound: On' : 'Sound: Off';
       }
       soundBtn.style.color = soundEnabled ? 'var(--emerald)' : 'var(--text-muted)';
       if (soundEnabled) window.playMechanicalClick(1200, 'triangle', 0.06);
@@ -349,21 +352,21 @@ function initLiveArchitecturePipeline() {
       }
 
       if (qpsMeter) {
-        qpsMeter.textContent = '892,400 TX/SEC 🔥';
+        qpsMeter.textContent = 'Demo — burst running';
         qpsMeter.style.color = '#00f2fe';
       }
       if (latencyMeter) {
-        latencyMeter.textContent = 'P99 Latency: 0.8ms (Turbo)';
+        latencyMeter.textContent = 'Demo burst running';
       }
 
       setTimeout(() => {
         packets.splice(22);
         if (qpsMeter) {
-          qpsMeter.textContent = '124,500 TX/SEC';
+          qpsMeter.textContent = 'Demo — visual only';
           qpsMeter.style.color = 'var(--emerald-neon)';
         }
         if (latencyMeter) {
-          latencyMeter.textContent = 'P99 Latency: 1.2ms';
+          latencyMeter.textContent = 'Canvas animation';
         }
       }, 3500);
     });
@@ -504,12 +507,6 @@ function initCommandPalette() {
           const targetEl = document.querySelector(jump);
           if (targetEl) targetEl.scrollIntoView({ behavior: 'smooth' });
           if (window.playMechanicalClick) window.playMechanicalClick(1200, 'sine', 0.04);
-        } else if (action === 'burst') {
-          const burstBtn = document.getElementById('trigger-burst-btn');
-          if (burstBtn) {
-            burstBtn.scrollIntoView({ behavior: 'smooth' });
-            burstBtn.click();
-          }
         } else if (action === 'github') {
           window.open('https://github.com/saroven', '_blank');
         } else if (action === 'email') {
@@ -575,6 +572,77 @@ function initCountUps() {
       }
     }, 20);
   });
+}
+
+// 12. GITHUB LIVE SYNC (real API, cached, silent fallback)
+async function initGitHubSync() {
+  const USER = 'saroven';
+  const CACHE_KEY = 'gh-sync-v1';
+  const TTL = 6 * 3600 * 1000; // 6 hours
+  const note = document.getElementById('gh-sync-note');
+  const setText = (id, txt) => {
+    const el = document.getElementById(id);
+    if (el && txt !== undefined && txt !== null) el.textContent = txt;
+  };
+
+  try {
+    let cached = null;
+    try { cached = JSON.parse(localStorage.getItem(CACHE_KEY) || 'null'); } catch (e) { /* ignore */ }
+
+    let data = null;
+    let fromCache = false;
+
+    if (cached && Date.now() - cached.ts < TTL && cached.payload) {
+      data = cached.payload;
+      fromCache = true;
+    } else {
+      const [user, repos] = await Promise.all([
+        fetch('https://api.github.com/users/' + USER).then(r => {
+          if (!r.ok) throw new Error('user ' + r.status);
+          return r.json();
+        }),
+        fetch('https://api.github.com/users/' + USER + '/repos?per_page=100&sort=pushed').then(r => {
+          if (!r.ok) throw new Error('repos ' + r.status);
+          return r.json();
+        })
+      ]);
+      const list = Array.isArray(repos) ? repos : [];
+      const stars = list.reduce((a, r) => a + (r.stargazers_count || 0), 0);
+      const langCount = {};
+      list.forEach(r => { if (r.language) langCount[r.language] = (langCount[r.language] || 0) + 1; });
+      const topLangs = Object.entries(langCount).sort((a, b) => b[1] - a[1]).slice(0, 3).map(e => e[0]);
+      const topStarred = [...list].sort((a, b) => (b.stargazers_count || 0) - (a.stargazers_count || 0))[0];
+
+      data = {
+        repos: user.public_repos,
+        followers: user.followers,
+        following: user.following,
+        hireable: user.hireable,
+        stars: stars,
+        topLangs: topLangs,
+        topRepo: topStarred ? topStarred.name : null,
+        syncedAt: new Date().toISOString()
+      };
+      try { localStorage.setItem(CACHE_KEY, JSON.stringify({ ts: Date.now(), payload: data })); } catch (e) { /* ignore */ }
+    }
+
+    setText('gh-repos-val', String(data.repos));
+    if (data.topLangs && data.topLangs.length) {
+      setText('gh-repos-sub', 'github.com/saroven · ' + data.topLangs.join(', '));
+    }
+    setText('gh-followers-val', String(data.followers));
+    setText('gh-followers-sub', data.following + ' following · ' + (data.hireable ? 'open to work' : 'on GitHub'));
+    setText('gh-stars-val', String(data.stars));
+    if (data.topRepo) {
+      setText('gh-stars-sub', 'Top: ' + data.topRepo + ' · live from GitHub');
+    }
+    if (note) {
+      const t = new Date(data.syncedAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      note.textContent = 'Live from GitHub API · synced ' + t + (fromCache ? ' (cached)' : '') + '.';
+    }
+  } catch (e) {
+    if (note) note.textContent = 'GitHub API unavailable · showing snapshot.';
+  }
 }
 
 // 11. LIVE DHAKA CLOCK

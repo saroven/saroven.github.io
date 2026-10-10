@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mohammad Shah Alam (@saroven) — Software Engineer at Quant Fintech Limited</title>
-  <meta name="description" content="Portfolio of Mohammad Shah Alam (saroven). Software Engineer at Quant Fintech Limited. B.Sc. in CSE from Green University of Bangladesh. Full-Stack and High-Throughput Backend Systems Engineering.">
+  <meta name="description" content="Portfolio of Mohammad Shah Alam (saroven). Software Engineer at Quant Fintech Limited. B.Sc. in CSE from Green University of Bangladesh. Laravel, MySQL, and JavaScript.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
     <div class="hud-container">
 
       <!-- Brand Identity -->
-      <a href="#overview" class="hud-brand" title="Mohammad Shah Alam — Cockpit Station">
+      <a href="#overview" class="hud-brand" title="Mohammad Shah Alam — home">
         <div class="monogram-pulse">
           <span class="pulse-ring"></span>
           <span class="monogram-core">SA</span>
@@ -39,18 +39,23 @@
 
       <!-- Navigation Anchors -->
       <nav class="cockpit-nav-links" aria-label="Sections">
-        <a href="#overview" class="c-link active">Overview</a>
-        <a href="#architecture" class="c-link">Architecture</a>
-        <a href="#systems" class="c-link">Case Studies</a>
-        <a href="#arsenal" class="c-link">Stack</a>
-        <a href="#chronology" class="c-link">Mission Log</a>
+        <a href="#overview" class="c-link active">About</a>
+        <a href="#architecture" class="c-link">Featured</a>
+        <a href="#systems" class="c-link">Projects</a>
+        <a href="#arsenal" class="c-link">Skills</a>
+        <a href="#chronology" class="c-link">Experience</a>
       </nav>
 
       <!-- Live Controls -->
       <div class="hud-controls">
-        <button id="sound-btn" class="hud-action-btn" title="Toggle Synthesized Mechanical Haptics">
-          <span class="sound-icon">🔊</span>
-          <span class="sound-label">Audio: ON</span>
+        <button id="sound-btn" class="hud-action-btn" title="Toggle sound">
+          <span class="sound-icon">♪</span>
+          <span class="sound-label">Sound: On</span>
+        </button>
+
+        <button id="cmd-palette-btn" class="hud-action-btn cmd-btn" title="Open search (Ctrl+K)">
+          <span class="kbd-pill">Ctrl K</span>
+          <span>Search</span>
         </button>
 
         <button id="cmd-palette-btn" class="hud-action-btn cmd-btn" title="Open Command Deck (⌘K / Ctrl+K)">
@@ -91,7 +96,7 @@
           <div class="hero-id-text">
             <div class="identity-badge">
               <span class="badge-dot"></span>
-              <span>Software Engineer · High-Throughput Fintech</span>
+              <span>Software Engineer · Fintech</span>
             </div>
             <h1 class="glitch-name">Mohammad Shah Alam</h1>
             <div class="hero-creds-cluster">
@@ -108,7 +113,7 @@
         </div>
 
         <p class="hero-mission">
-          Architecting fault-tolerant financial ledgers, zero-memory-leak streaming export pipelines, and ultra-reactive distributed web applications.
+          Software Engineer at Quant Fintech. I work on ledger systems, Laravel packages, and web apps.
         </p>
 
         <!-- Social Transmission Links -->
@@ -135,37 +140,30 @@
         </div>
       </div>
 
-      <!-- Right Live System Architecture Telemetry Radar -->
+      <!-- Right featured project -->
       <div id="architecture" class="cockpit-right tilt-card" data-tilt>
         <div class="card-spotlight"></div>
-        <div class="radar-top">
-          <div class="radar-badge">
-            <span class="live-beacon"></span>
-            <span>Live System Architecture & Transaction Telemetry</span>
-          </div>
-          <span class="telemetry-speed" id="qps-meter">124,500 TX/SEC</span>
+        <div class="featured-top">
+          <span class="featured-label">Featured project</span>
+          <a href="https://packagist.org/packages/saroven/reportify" target="_blank" rel="noopener" class="featured-link">Packagist ↗</a>
         </div>
 
-        <div class="pipeline-viewport">
-          <canvas id="architecture-pipeline-canvas" width="620" height="230"></canvas>
-          <div class="pipeline-hud-overlay">
-            <div class="overlay-node" style="left: 8%; top: 46%;">[Clients]</div>
-            <div class="overlay-node" style="left: 36%; top: 46%;">[Quant Gateway]</div>
-            <div class="overlay-node" style="left: 64%; top: 22%;">[Queue Workers]</div>
-            <div class="overlay-node" style="left: 64%; top: 72%;">[Reportify Stream]</div>
-            <div class="overlay-node" style="left: 90%; top: 46%;">[MySQL / Redis]</div>
-          </div>
-        </div>
+        <h3 class="featured-name">laravel-reportify</h3>
+        <p class="featured-desc">
+          Laravel exports that don't crash on large tables. Chunked queries + queue workers, streamed to PDF, Excel, CSV, or ZIP.
+        </p>
 
-        <div class="radar-actions">
-          <button id="trigger-burst-btn" class="burst-trigger-btn">
-            <span class="btn-flare"></span>
-            <span class="btn-text">⚡ INJECT 100,000 TRANSACTION BURST</span>
-          </button>
-          <div class="burst-metrics">
-            <span id="burst-latency">P99 Latency: 1.2ms</span>
-            <span id="burst-memory">Memory: Flat 14MB</span>
-          </div>
+        <pre class="featured-code"><code>composer require saroven/reportify</code></pre>
+
+        <ul class="featured-points">
+          <li>Chunked DB reads, low memory</li>
+          <li>Queued jobs via Horizon / Redis</li>
+          <li>PDF · XLSX · CSV · ZIP</li>
+        </ul>
+
+        <div class="featured-actions">
+          <a href="https://github.com/saroven" target="_blank" rel="noopener" class="mag-btn">GitHub repo</a>
+          <a href="#systems" class="mag-btn primary-glow">See how it's used</a>
         </div>
       </div>
 
@@ -177,21 +175,21 @@
     <section class="metrics-strip">
       <div class="metric-block tilt-card" data-tilt>
         <div class="card-spotlight"></div>
-        <div class="m-val count-up" data-target="1721">1,721+</div>
-        <div class="m-title">GitHub Contributions</div>
-        <div class="m-sub">7+ Years Continuous Shipping (Since Nov 2017)</div>
+        <div class="m-val count-up" data-target="51" id="gh-repos-val">51</div>
+        <div class="m-title">Public repos</div>
+        <div class="m-sub" id="gh-repos-sub">github.com/saroven · HTML, PHP, JS</div>
       </div>
       <div class="metric-block tilt-card" data-tilt>
         <div class="card-spotlight"></div>
-        <div class="m-val">99.99%</div>
-        <div class="m-title">Fintech Reliability</div>
-        <div class="m-sub">Quant Fintech Limited Production Standard</div>
+        <div class="m-val" id="gh-followers-val">21</div>
+        <div class="m-title">Followers</div>
+        <div class="m-sub" id="gh-followers-sub">36 following · open to work</div>
       </div>
       <div class="metric-block tilt-card" data-tilt>
         <div class="card-spotlight"></div>
-        <div class="m-val count-up" data-target="51">51+</div>
-        <div class="m-title">Open Repositories</div>
-        <div class="m-sub">Packages, Engines, and Linguistic NLP Tools</div>
+        <div class="m-val" id="gh-stars-val">7</div>
+        <div class="m-title">Stars earned</div>
+        <div class="m-sub" id="gh-stars-sub">Across own repos · live from GitHub</div>
       </div>
       <div class="metric-block tilt-card" data-tilt>
         <div class="card-spotlight"></div>
@@ -200,15 +198,16 @@
         <div class="m-sub">Green University of Bangladesh</div>
       </div>
     </section>
+    <p class="gh-sync-note" id="gh-sync-note">Static snapshot · will sync live from GitHub API on load.</p>
 
     <!-- ============================================================== -->
     <!-- 3. PRODUCTION SYSTEMS & CASE STUDIES                           -->
     <!-- ============================================================== -->
     <section id="systems" class="showcase-section">
       <div class="section-lead">
-        <span class="lead-tag">// PRODUCTION ENGINEERING & SYSTEMS</span>
-        <h2 class="lead-title">Core Architecture & Case Studies</h2>
-        <p class="lead-desc">Real-world production systems engineered with rigor, performance benchmarks, and mathematical integrity.</p>
+        <span class="lead-tag">Work</span>
+        <h2 class="lead-title">Selected projects</h2>
+        <p class="lead-desc">Things I've built at work and as open source.</p>
       </div>
 
       <div class="cards-grid">
@@ -218,18 +217,18 @@
           <div class="card-spotlight"></div>
           <div class="card-accent-bar enterprise"></div>
           <div class="case-meta">
-            <span class="tag-pill enterprise">Fintech Enterprise</span>
+            <span class="tag-pill enterprise">Work</span>
             <span class="meta-org">Quant Fintech Limited</span>
           </div>
-          <h3 class="case-name">Financial Transaction Ledger & Reconciliation Engine</h3>
+          <h3 class="case-name">Transaction ledger and reconciliation</h3>
           <p class="case-body">
-            Engineered automated double-entry ledger settlement mechanisms, high-precision account journals, and audit trails. Guaranteed transactional idempotency under concurrent high-velocity payment requests with sub-100ms response targets.
+            Double-entry ledger with journals and audit trails. Built to handle concurrent payments with idempotent writes.
           </p>
           <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Consistency</span><span class="v">ACID Invariants</span></div>
-            <div class="spec-item"><span class="k">Architecture</span><span class="v">Domain-Driven (DDD)</span></div>
-            <div class="spec-item"><span class="k">Storage</span><span class="v">MySQL 8 InnoDB Locking</span></div>
-            <div class="spec-item"><span class="k">Deployment</span><span class="v">Docker Containers</span></div>
+            <div class="spec-item"><span class="k">Consistency</span><span class="v">ACID transactions</span></div>
+            <div class="spec-item"><span class="k">Framework</span><span class="v">Laravel</span></div>
+            <div class="spec-item"><span class="k">Storage</span><span class="v">MySQL 8 / InnoDB</span></div>
+            <div class="spec-item"><span class="k">Deployment</span><span class="v">Docker</span></div>
           </div>
         </article>
 
@@ -238,18 +237,18 @@
           <div class="card-spotlight"></div>
           <div class="card-accent-bar open-source"></div>
           <div class="case-meta">
-            <span class="tag-pill open-source">Open Source Engine</span>
-            <span class="meta-org">Packagist · ⭐ 3 Stars</span>
+            <span class="tag-pill open-source">Open source</span>
+            <span class="meta-org">Packagist</span>
           </div>
-          <h3 class="case-name">laravel-reportify: Queue-Driven Streaming Export Engine</h3>
+          <h3 class="case-name">laravel-reportify: streaming exports</h3>
           <p class="case-body">
-            Conquered PHP's memory limit crashes during large dataset exports. Combines database chunking, PHP generators (<code>yield</code>), and background queue workers to stream millions of rows into PDF, Excel, CSV, and ZIP with a <strong>flat 14MB RAM footprint</strong>.
+            Export large datasets to PDF, Excel, CSV, and ZIP using chunking and queue workers to keep memory usage flat.
           </p>
           <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Memory Mode</span><span class="v text-emerald">Zero-Leak Streaming</span></div>
-            <div class="spec-item"><span class="k">Queues</span><span class="v">Laravel Horizon / Redis</span></div>
+            <div class="spec-item"><span class="k">Memory</span><span class="v text-emerald">Chunked streaming</span></div>
+            <div class="spec-item"><span class="k">Queues</span><span class="v">Horizon / Redis</span></div>
             <div class="spec-item"><span class="k">Formats</span><span class="v">PDF, XLSX, CSV, ZIP</span></div>
-            <div class="spec-item"><span class="k">Throughput</span><span class="v">100k rows in ~1.4s</span></div>
+            <div class="spec-item"><span class="k">Tested</span><span class="v">100k rows</span></div>
           </div>
         </article>
 
@@ -258,18 +257,18 @@
           <div class="card-spotlight"></div>
           <div class="card-accent-bar realtime"></div>
           <div class="case-meta">
-            <span class="tag-pill realtime">Real-Time Web</span>
+            <span class="tag-pill realtime">Realtime</span>
             <span class="meta-org">PHP & WebSockets</span>
           </div>
-          <h3 class="case-name">Low-Latency Bi-Directional Messaging Platform</h3>
+          <h3 class="case-name">Realtime messaging</h3>
           <p class="case-body">
-            Built an asynchronous communication layer linking client event loops with server-side message brokers. Features real-time typing broadcasts, connection state persistence, and instant duplex message routing.
+            Chat layer with typing indicators and message delivery over WebSockets, backed by Redis pub/sub.
           </p>
           <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Protocol</span><span class="v">WebSockets / Long-Polling</span></div>
+            <div class="spec-item"><span class="k">Protocol</span><span class="v">WebSockets</span></div>
             <div class="spec-item"><span class="k">Broker</span><span class="v">Redis Pub/Sub</span></div>
             <div class="spec-item"><span class="k">Backend</span><span class="v">PHP & MySQL</span></div>
-            <div class="spec-item"><span class="k">Client</span><span class="v">Vue.js / JavaScript</span></div>
+            <div class="spec-item"><span class="k">Client</span><span class="v">Vue.js</span></div>
           </div>
         </article>
 
@@ -278,18 +277,18 @@
           <div class="card-spotlight"></div>
           <div class="card-accent-bar nlp"></div>
           <div class="case-meta">
-            <span class="tag-pill nlp">Linguistic NLP</span>
-            <span class="meta-org">Developer Utility</span>
+            <span class="tag-pill nlp">Side project</span>
+            <span class="meta-org">Open source</span>
           </div>
-          <h3 class="case-name">Sobdojot: 37k Bangla Linguistic Corpus & Engine</h3>
+          <h3 class="case-name">Sobdojot: 37k Bangla words</h3>
           <p class="case-body">
-            Curated and published a standardized 37,000+ entry Bangla vocabulary dataset for linguistic computing, paired with on-screen phonetic typing tools, search indexing, and computational text processing utilities.
+            A 37,000+ entry Bangla word list with phonetic typing and search, for experiments with text input.
           </p>
           <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Dataset</span><span class="v">37,000+ Words</span></div>
-            <div class="spec-item"><span class="k">Domain</span><span class="v">Computational NLP</span></div>
-            <div class="spec-item"><span class="k">Input Tools</span><span class="v">Virtual Layout Engine</span></div>
-            <div class="spec-item"><span class="k">Access</span><span class="v">Public Open Source</span></div>
+            <div class="spec-item"><span class="k">Dataset</span><span class="v">37,000+ words</span></div>
+            <div class="spec-item"><span class="k">Use</span><span class="v">Typing & search</span></div>
+            <div class="spec-item"><span class="k">Input</span><span class="v">Phonetic layout</span></div>
+            <div class="spec-item"><span class="k">Access</span><span class="v">Public repo</span></div>
           </div>
         </article>
 
@@ -301,16 +300,16 @@
     <!-- ============================================================== -->
     <section id="arsenal" class="arsenal-section">
       <div class="section-lead">
-        <span class="lead-tag">// FULL-STACK ECOSYSTEM</span>
-        <h2 class="lead-title">Technical Competencies & Tooling</h2>
-        <p class="lead-desc">Categorized production competencies honed across fintech backends, reactive web UIs, and cloud environments.</p>
+        <span class="lead-tag">Skills</span>
+        <h2 class="lead-title">What I work with</h2>
+        <p class="lead-desc">Backend, frontend, and the tooling around them.</p>
       </div>
 
       <div class="arsenal-tabs">
-        <button class="arsenal-tab-btn active" data-filter="all">All Disciplines</button>
-        <button class="arsenal-tab-btn" data-filter="backend">Backend & Database</button>
-        <button class="arsenal-tab-btn" data-filter="frontend">Frontend & Reactive</button>
-        <button class="arsenal-tab-btn" data-filter="systems">DevOps & Platforms</button>
+        <button class="arsenal-tab-btn active" data-filter="all">All</button>
+        <button class="arsenal-tab-btn" data-filter="backend">Backend</button>
+        <button class="arsenal-tab-btn" data-filter="frontend">Frontend</button>
+        <button class="arsenal-tab-btn" data-filter="systems">DevOps</button>
       </div>
 
       <div class="arsenal-grid" id="arsenal-grid">
@@ -321,7 +320,7 @@
             <span class="tool-name">PHP 8.x</span>
             <span class="tool-tag">Language</span>
           </div>
-          <p class="tool-desc">Strict type system, attributes, JIT, modern generators (yield), high-performance queue consumers.</p>
+          <p class="tool-desc">Types, attributes, generators, queue workers.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="backend" data-tilt>
@@ -330,7 +329,7 @@
             <span class="tool-name">Laravel</span>
             <span class="tool-tag">Framework</span>
           </div>
-          <p class="tool-desc">Domain-Driven Design (DDD), Horizon queues, chunked streaming, API resources, event listeners.</p>
+          <p class="tool-desc">Horizon queues, APIs, events, chunked exports.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="backend" data-tilt>
@@ -339,7 +338,7 @@
             <span class="tool-name">MySQL</span>
             <span class="tool-tag">RDBMS</span>
           </div>
-          <p class="tool-desc">Complex queries, transaction isolation levels, InnoDB row locks, schema indexing, ledger tables.</p>
+          <p class="tool-desc">Schema design, indexes, transactions, InnoDB locks.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="backend" data-tilt>
@@ -348,7 +347,7 @@
             <span class="tool-name">Redis</span>
             <span class="tool-tag">In-Memory</span>
           </div>
-          <p class="tool-desc">High-throughput caching, token bucket rate limiting, pub/sub channels, queue brokers.</p>
+          <p class="tool-desc">Caching, rate limiting, pub/sub, queues.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
@@ -357,7 +356,7 @@
             <span class="tool-name">Vue.js 3</span>
             <span class="tool-tag">Frontend</span>
           </div>
-          <p class="tool-desc">Composition API, reactive refs, Pinia state stores, high-velocity dashboards.</p>
+          <p class="tool-desc">Composition API, Pinia, dashboards.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
@@ -366,7 +365,7 @@
             <span class="tool-name">Nuxt.js</span>
             <span class="tool-tag">SSR / SSG</span>
           </div>
-          <p class="tool-desc">Server-Side Rendering, universal routing, SEO-optimized dynamic applications.</p>
+          <p class="tool-desc">SSR, routing, SEO pages.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
@@ -375,7 +374,7 @@
             <span class="tool-name">React</span>
             <span class="tool-tag">Frontend</span>
           </div>
-          <p class="tool-desc">Functional components, custom hooks, reactive state models, clean component trees.</p>
+          <p class="tool-desc">Components, hooks, state.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
@@ -384,7 +383,7 @@
             <span class="tool-name">JavaScript (ES6+)</span>
             <span class="tool-tag">Language</span>
           </div>
-          <p class="tool-desc">Async/await, promises, WebSockets, DOM rendering, client-side event loops.</p>
+          <p class="tool-desc">Async JS, WebSockets, DOM.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
@@ -393,7 +392,7 @@
             <span class="tool-name">Docker</span>
             <span class="tool-tag">Containers</span>
           </div>
-          <p class="tool-desc">Docker Compose multi-container stacks (PHP-FPM, Nginx, MySQL, Redis, Horizon).</p>
+          <p class="tool-desc">Compose stacks: PHP, Nginx, MySQL, Redis.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
@@ -402,7 +401,7 @@
             <span class="tool-name">Ubuntu Linux</span>
             <span class="tool-tag">Server OS</span>
           </div>
-          <p class="tool-desc">Systemd daemon services, supervisor queue workers, crontab automation, bash scripting.</p>
+          <p class="tool-desc">Systemd, Supervisor, cron, bash.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
@@ -411,7 +410,7 @@
             <span class="tool-name">Git & GitHub</span>
             <span class="tool-tag">VCS</span>
           </div>
-          <p class="tool-desc">Continuous deployment, GitHub Pages, pull request workflows, semantic releases.</p>
+          <p class="tool-desc">PRs, Pages, releases.</p>
         </div>
 
         <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
@@ -420,7 +419,7 @@
             <span class="tool-name">PhpStorm & VS Code</span>
             <span class="tool-tag">Tooling</span>
           </div>
-          <p class="tool-desc">Xdebug profiling, static analysis, Postman API contract testing, terminal automation.</p>
+          <p class="tool-desc">Xdebug, linting, Postman.</p>
         </div>
 
       </div>
@@ -431,9 +430,9 @@
     <!-- ============================================================== -->
     <section id="chronology" class="chronology-section">
       <div class="section-lead">
-        <span class="lead-tag">// CAREER TIMELINE & CONTINUOUS SHIPPING</span>
-        <h2 class="lead-title">Engineering Mission Log (2017 — Present)</h2>
-        <p class="lead-desc">Chronological progression across enterprise fintech, academic milestones, and open-source contributions.</p>
+        <span class="lead-tag">History</span>
+        <h2 class="lead-title">Experience (2017 — Present)</h2>
+        <p class="lead-desc">Work and education.</p>
       </div>
 
       <div class="cockpit-timeline">
@@ -441,56 +440,42 @@
         <!-- 2023 - Present: Quant Fintech Limited -->
         <div class="timeline-entry tilt-card" data-tilt>
           <div class="card-spotlight"></div>
-          <div class="t-badge current">ACTIVE MISSION</div>
+          <div class="t-badge current">Current role</div>
           <div class="t-time">2023 — Present</div>
           <h3 class="t-title">Software Engineer · Quant Fintech Limited</h3>
           <p class="t-desc">
-            Developing core financial ledgers, transactional clearing modules, and settlement engines at Dilkusha, Motijheel, Dhaka. Implementing high-concurrency event listeners, automated reconciliation, and modular Laravel architectures.
+            Working on ledgers, settlement and reconciliation in Dhaka. Mostly Laravel, MySQL, and Docker.
           </p>
           <div class="t-tags">
-            <span>Laravel</span><span>MySQL</span><span>Docker</span><span>ACID Ledger</span><span>DDD</span>
+            <span>Laravel</span><span>MySQL</span><span>Docker</span><span>Ledgers</span>
           </div>
         </div>
 
-        <!-- 2024: laravel-reportify -->
+        <!-- Skylark Soft Limited -->
         <div class="timeline-entry tilt-card" data-tilt>
           <div class="card-spotlight"></div>
-          <div class="t-badge ship">OPEN SOURCE SHIPMENT</div>
-          <div class="t-time">2024</div>
-          <h3 class="t-title">Shipped <code>laravel-reportify</code> Engine</h3>
+          <div class="t-badge prev">Previous role</div>
+          <div class="t-time">Sep 2022 — Dec 2023</div>
+          <h3 class="t-title">Junior Software Engineer · Skylark Soft Limited</h3>
           <p class="t-desc">
-            Published unified, queue-driven streaming export package for Laravel on Packagist and GitHub. Enabled zero-memory-leak streaming exports across PDF, Excel, CSV, and ZIP formats for large datasets.
+            First full-time role. Features and fixes for web apps, shipped with the team.
           </p>
           <div class="t-tags">
-            <span>PHP</span><span>Packagist</span><span>Queue Workers</span><span>Streaming</span>
+            <span>PHP</span><span>JavaScript</span><span>Team</span>
           </div>
         </div>
 
         <!-- Academic Milestone: Green University of Bangladesh -->
         <div class="timeline-entry tilt-card" data-tilt>
           <div class="card-spotlight"></div>
-          <div class="t-badge edu">ACADEMIC DEGREE</div>
+          <div class="t-badge edu">Education</div>
           <div class="t-time">Graduation</div>
           <h3 class="t-title">B.Sc. in Computer Science and Engineering</h3>
           <p class="t-desc">
-            Completed Bachelor of Science in CSE from <strong>Green University of Bangladesh</strong>. Rigorous training in software engineering methodologies, database architectures, data structures, and algorithms.
+            Green University of Bangladesh. Data structures, algorithms, databases, software engineering.
           </p>
           <div class="t-tags">
-            <span>Green University</span><span>CSE</span><span>Data Structures</span><span>Algorithms</span>
-          </div>
-        </div>
-
-        <!-- 2017: First Commit -->
-        <div class="timeline-entry tilt-card" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="t-badge genesis">GENESIS PROTOCOL</div>
-          <div class="t-time">Nov 11, 2017</div>
-          <h3 class="t-title">Joined GitHub & Started Continuous Shipping</h3>
-          <p class="t-desc">
-            Pushed first open-source commits, building web applications, Bangla computational linguistic engines (Sobdojot), and interactive software. Amassed over 1,720+ lifetime GitHub contributions.
-          </p>
-          <div class="t-tags">
-            <span>1,721+ Commits</span><span>Developer Program</span><span>GitHub</span>
+            <span>Green University</span><span>CSE</span>
           </div>
         </div>
 
@@ -499,86 +484,78 @@
 
   </main>
 
-  <!-- Command Deck Modal (⌘K) -->
+  <!-- Search modal (Ctrl+K) -->
   <div id="cmd-modal" class="cmd-modal-backdrop">
     <div class="cmd-dialog">
       <div class="cmd-input-wrap">
-        <span class="cmd-prompt-glyph">λ</span>
-        <input type="text" id="cmd-input" placeholder="Type command or jump to section (e.g. 'burst', 'arsenal', 'github', 'email')..." autocomplete="off">
+        <span class="cmd-prompt-glyph">›</span>
+        <input type="text" id="cmd-input" placeholder="Jump to a section, or open GitHub..." autocomplete="off">
         <span class="cmd-esc-hint">ESC to close</span>
       </div>
       <div class="cmd-results" id="cmd-results">
-        <div class="cmd-item" data-action="burst">
-          <span class="cmd-icon">⚡</span>
-          <span class="cmd-text">Inject 100k Transaction Burst Simulation</span>
-          <span class="cmd-badge">Action</span>
+        <div class="cmd-item" data-jump="#systems">
+          <span class="cmd-icon">→</span>
+          <span class="cmd-text">View featured project</span>
+          <span class="cmd-badge">Go</span>
         </div>
         <div class="cmd-item" data-jump="#overview">
-          <span class="cmd-icon">🚀</span>
-          <span class="cmd-text">Jump to Cockpit Overview</span>
-          <span class="cmd-badge">Nav</span>
+          <span class="cmd-icon">→</span>
+          <span class="cmd-text">About</span>
+          <span class="cmd-badge">Go</span>
         </div>
         <div class="cmd-item" data-jump="#systems">
-          <span class="cmd-icon">🏢</span>
-          <span class="cmd-text">Quant Fintech Limited & laravel-reportify Systems</span>
-          <span class="cmd-badge">Nav</span>
+          <span class="cmd-icon">→</span>
+          <span class="cmd-text">Projects</span>
+          <span class="cmd-badge">Go</span>
         </div>
         <div class="cmd-item" data-jump="#arsenal">
-          <span class="cmd-icon">🛠️</span>
-          <span class="cmd-text">Technical Arsenal & Stack Matrix</span>
-          <span class="cmd-badge">Nav</span>
+          <span class="cmd-icon">→</span>
+          <span class="cmd-text">Skills</span>
+          <span class="cmd-badge">Go</span>
         </div>
         <div class="cmd-item" data-jump="#chronology">
-          <span class="cmd-icon">📜</span>
-          <span class="cmd-text">Mission Log (Green University & Career)</span>
-          <span class="cmd-badge">Nav</span>
+          <span class="cmd-icon">→</span>
+          <span class="cmd-text">Experience</span>
+          <span class="cmd-badge">Go</span>
         </div>
         <div class="cmd-item" data-action="github">
-          <span class="cmd-icon">🐙</span>
-          <span class="cmd-text">Open GitHub Profile (@saroven)</span>
+          <span class="cmd-icon">→</span>
+          <span class="cmd-text">Open GitHub (@saroven)</span>
           <span class="cmd-badge">Link</span>
         </div>
         <div class="cmd-item" data-action="email">
-          <span class="cmd-icon">✉️</span>
-          <span class="cmd-text">Copy Email: saroven.dev@gmail.com</span>
+          <span class="cmd-icon">→</span>
+          <span class="cmd-text">Copy email: saroven.dev@gmail.com</span>
           <span class="cmd-badge">Copy</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- HUD Cockpit Footer Console -->
+  <!-- Footer -->
   <footer class="hud-footer">
     <div class="hud-footer-inner">
 
-      <!-- Telemetry Marquee Header -->
+      <!-- Status strip -->
       <div class="footer-telemetry-strip">
         <div class="telemetry-chip">
           <span class="chip-beacon online"></span>
-          <span>COCKPIT STATION // ONLINE</span>
+          <span>Open to work</span>
         </div>
         <div class="telemetry-chip">
-          <span class="chip-tag">LATENCY</span>
-          <span>P99 &lt;1.2ms</span>
+          <span class="chip-tag">Based in</span>
+          <span>Dhaka, Bangladesh (UTC+6)</span>
         </div>
         <div class="telemetry-chip">
-          <span class="chip-tag">NODE</span>
-          <span>DHAKA, BANGLADESH (UTC+6)</span>
-        </div>
-        <div class="telemetry-chip">
-          <span class="chip-tag">CORPUS</span>
-          <span>1,721+ LIFETIME COMMITS</span>
-        </div>
-        <div class="telemetry-chip">
-          <span class="chip-tag">SLA</span>
-          <span>99.99% FAULT-TOLERANT</span>
+          <span class="chip-tag">GitHub</span>
+          <span>1,721+ commits</span>
         </div>
       </div>
 
-      <!-- 4-Column Operations Deck Grid -->
+      <!-- 4-Column Grid -->
       <div class="footer-grid">
 
-        <!-- Column 1: Engineering Identity -->
+        <!-- Column 1: Identity -->
         <div class="footer-col brand-col">
           <div class="footer-brand-lockup">
             <div class="monogram-pulse small">
@@ -587,46 +564,46 @@
             </div>
             <div>
               <div class="f-name">Mohammad Shah Alam</div>
-              <div class="f-title">Software Engineer @ Quant Fintech Limited</div>
+              <div class="f-title">Software Engineer @ Quant Fintech</div>
             </div>
           </div>
           <p class="f-bio">
-            Designing fault-tolerant double-entry financial ledgers, streaming queue workers, and reactive distributed platforms. Dedicated to zero-overhead engineering and mathematical precision.
+            I build ledger systems, Laravel packages, and web apps. Plain code, tested, documented.
           </p>
           <div class="f-credentials-chips">
-            <span class="f-chip">B.Sc. CSE Green University</span>
-            <span class="f-chip">1,721+ Commits</span>
-            <span class="f-chip">Packagist Engine Author</span>
+            <span class="f-chip">B.Sc. CSE, Green University</span>
+            <span class="f-chip">1,721+ commits</span>
+            <span class="f-chip">On Packagist</span>
           </div>
         </div>
 
-        <!-- Column 2: Cockpit Systems Directory -->
+        <!-- Column 2: Site -->
         <div class="footer-col">
-          <div class="f-col-header">// NAVIGATION RADAR</div>
+          <div class="f-col-header">Site</div>
           <ul class="f-link-list">
-            <li><a href="#overview" class="f-link"><span>01</span> Cockpit Telemetry Overview</a></li>
-            <li><a href="#architecture" class="f-link"><span>02</span> High-Velocity Pipeline Radar</a></li>
-            <li><a href="#systems" class="f-link"><span>03</span> Production Case Studies</a></li>
-            <li><a href="#arsenal" class="f-link"><span>04</span> Technical Arsenal Matrix</a></li>
-            <li><a href="#chronology" class="f-link"><span>05</span> Career & University Mission Log</a></li>
+            <li><a href="#overview" class="f-link"><span>01</span> About</a></li>
+            <li><a href="#architecture" class="f-link"><span>02</span> Featured project</a></li>
+            <li><a href="#systems" class="f-link"><span>03</span> Projects</a></li>
+            <li><a href="#arsenal" class="f-link"><span>04</span> Skills</a></li>
+            <li><a href="#chronology" class="f-link"><span>05</span> Experience</a></li>
           </ul>
         </div>
 
-        <!-- Column 3: Shipped Architecture -->
+        <!-- Column 3: Projects -->
         <div class="footer-col">
-          <div class="f-col-header">// SHIPPED ARCHITECTURE</div>
+          <div class="f-col-header">Projects</div>
           <ul class="f-link-list">
-            <li><a href="#systems" class="f-link"><span>⚡</span> Quant Fintech Reconciliation Ledger</a></li>
-            <li><a href="https://packagist.org/packages/saroven/reportify" target="_blank" rel="noopener" class="f-link"><span>📦</span> laravel-reportify (Packagist) ↗</a></li>
-            <li><a href="#systems" class="f-link"><span>💬</span> Real-Time WebSockets Engine</a></li>
-            <li><a href="#systems" class="f-link"><span>📚</span> Sobdojot 37k Bangla NLP Corpus</a></li>
-            <li><a href="https://github.com/saroven?tab=repositories" target="_blank" rel="noopener" class="f-link"><span>📂</span> 51+ Open Source Repositories ↗</a></li>
+            <li><a href="#systems" class="f-link"><span>→</span> Ledger and reconciliation</a></li>
+            <li><a href="https://packagist.org/packages/saroven/reportify" target="_blank" rel="noopener" class="f-link"><span>→</span> laravel-reportify ↗</a></li>
+            <li><a href="#systems" class="f-link"><span>→</span> Realtime messaging</a></li>
+            <li><a href="#systems" class="f-link"><span>→</span> Sobdojot word list</a></li>
+            <li><a href="https://github.com/saroven?tab=repositories" target="_blank" rel="noopener" class="f-link"><span>→</span> All repos ↗</a></li>
           </ul>
         </div>
 
-        <!-- Column 4: Comms & Transmissions Deck -->
+        <!-- Column 4: Contact -->
         <div class="footer-col comms-col">
-          <div class="f-col-header">// DIRECT TRANSMISSIONS</div>
+          <div class="f-col-header">Contact</div>
           <div class="f-comms-deck">
             <a href="https://github.com/saroven" target="_blank" rel="noopener" class="f-deck-btn">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
@@ -650,23 +627,23 @@
 
       </div>
 
-      <!-- Bottom Status & Ascent Deck -->
+      <!-- Bottom bar -->
       <div class="footer-baseline">
         <div class="f-base-left">
-          <span>© 2026 <strong>Mohammad Shah Alam</strong>. Continuous Production Shipping.</span>
+          <span>© 2026 <strong>Mohammad Shah Alam</strong>.</span>
           <span class="f-sep">•</span>
-          <span>Motijheel, Dhaka, Bangladesh</span>
+          <span>Dhaka, Bangladesh</span>
         </div>
         <div class="f-base-right">
           <div class="f-meta-pills">
-            <span>60 FPS Kinetic Physics</span>
+            <span>HTML</span>
             <span>•</span>
-            <span>Zero AI Slop</span>
+            <span>CSS</span>
             <span>•</span>
-            <span>Cockpit Architecture</span>
+            <span>JavaScript</span>
           </div>
-          <button id="back-to-top-btn" class="back-to-top-btn" title="Return to Top of Cockpit">
-            <span>▲ TOP OF DECK</span>
+          <button id="back-to-top-btn" class="back-to-top-btn" title="Back to top">
+            <span>↑ Back to top</span>
           </button>
         </div>
       </div>
