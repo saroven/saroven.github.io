@@ -3,651 +3,207 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mohammad Shah Alam (@saroven) — Software Engineer at Quant Fintech Limited</title>
-  <meta name="description" content="Portfolio of Mohammad Shah Alam (saroven). Software Engineer at Quant Fintech Limited. B.Sc. in CSE from Green University of Bangladesh. Laravel, MySQL, and JavaScript.">
+  <title>Mohammad Shah Alam — Software Engineer (Laravel, MySQL, JavaScript)</title>
+  <meta name="description" content="Mohammad Shah Alam (saroven) — Software Engineer in Dhaka, Bangladesh. Laravel backends, APIs, dashboards, and open-source packages. Currently at Quant Fintech Limited. Open to client projects and full-time roles.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="kinetic-app">
+<body>
 
-  <!-- 60FPS Kinetic Physics Background Canvas -->
-  <canvas id="kinetic-canvas"></canvas>
-
-  <!-- Mouse Light Orb -->
-  <div id="pointer-light" class="pointer-light"></div>
-
-  <!-- Cockpit HUD Navigation -->
-  <header class="hud-nav">
-    <div class="hud-container">
-
-      <!-- Brand Identity -->
-      <a href="#overview" class="hud-brand" title="Mohammad Shah Alam — home">
-        <div class="monogram-pulse">
-          <span class="pulse-ring"></span>
-          <span class="monogram-core">SA</span>
-        </div>
-        <div class="brand-info">
-          <div class="brand-title">
-            <span class="name">Mohammad Shah Alam</span>
-            <span class="verified-glyph" title="Software Engineer">✓</span>
-          </div>
-          <span class="brand-role">Software Engineer · Quant Fintech</span>
-        </div>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a href="#top" class="brand">
+        <span class="brand-mark">SA</span>
+        <span class="brand-text">Mohammad Shah Alam</span>
       </a>
-
-      <!-- Navigation Anchors -->
-      <nav class="cockpit-nav-links" aria-label="Sections">
-        <a href="#overview" class="c-link active">About</a>
-        <a href="#architecture" class="c-link">Featured</a>
-        <a href="#systems" class="c-link">Projects</a>
-        <a href="#arsenal" class="c-link">Skills</a>
-        <a href="#chronology" class="c-link">Experience</a>
+      <nav class="site-nav" id="site-nav" aria-label="Sections">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
       </nav>
-
-      <!-- Live Controls -->
-      <div class="hud-controls">
-        <button id="sound-btn" class="hud-action-btn" title="Toggle sound">
-          <span class="sound-icon">♪</span>
-          <span class="sound-label">Sound: On</span>
-        </button>
-
-        <button id="cmd-palette-btn" class="hud-action-btn cmd-btn" title="Open search (Ctrl+K)">
-          <span class="kbd-pill">Ctrl K</span>
-          <span>Search</span>
-        </button>
-
-        <button id="cmd-palette-btn" class="hud-action-btn cmd-btn" title="Open Command Deck (⌘K / Ctrl+K)">
-          <span class="kbd-pill">⌘K</span>
-          <span>Deck</span>
-        </button>
-
-        <div class="hud-status-pill" title="Station: Quant Fintech Limited, Dhaka">
-          <span class="radar-dot"></span>
-          <span class="status-txt">Quant Fintech</span>
-        </div>
-        <div class="hud-clock" id="hud-clock">02:30:00 UTC+6</div>
+      <div class="header-cta">
+        <a href="mailto:shahalam.roven28@gmail.com" class="btn btn-primary btn-sm">Hire me</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false">☰</button>
       </div>
-
     </div>
   </header>
 
-  <!-- Main Viewport -->
-  <main class="hud-main">
+  <main id="top">
 
-    <!-- ============================================================== -->
-    <!-- 1. HERO COCKPIT (THE SIGNATURE CORE)                           -->
-    <!-- ============================================================== -->
-    <section id="overview" class="cockpit-hero">
-
-      <!-- Left Hero Cockpit Card -->
-      <div class="cockpit-left tilt-card" data-tilt>
-        <div class="card-spotlight"></div>
-        <div class="hero-id-strip">
-          <div class="avatar-holo-wrap">
-            <img src="assets/images/profile.jpg" alt="Mohammad Shah Alam" class="avatar-img" onerror="this.src='https://avatars.githubusercontent.com/u/33569927?v=4'">
-            <div class="avatar-scanner-line"></div>
-            <div class="holo-corner tl"></div>
-            <div class="holo-corner tr"></div>
-            <div class="holo-corner bl"></div>
-            <div class="holo-corner br"></div>
-          </div>
-          <div class="hero-id-text">
-            <div class="identity-badge">
-              <span class="badge-dot"></span>
-              <span>Software Engineer · Fintech</span>
-            </div>
-            <h1 class="glitch-name">Mohammad Shah Alam</h1>
-            <div class="hero-creds-cluster">
-              <div class="cred-row">
-                <span class="cred-badge">ENTERPRISE</span>
-                <span class="cred-desc">Software Engineer at <strong>Quant Fintech Limited</strong> <span class="cred-sub">(Dilkusha, Motijheel, Dhaka)</span></span>
-              </div>
-              <div class="cred-row">
-                <span class="cred-badge">ACADEMIC</span>
-                <span class="cred-desc">B.Sc. in Computer Science & Engineering · <strong>Green University of Bangladesh</strong></span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p class="hero-mission">
-          Software Engineer at Quant Fintech. I work on ledger systems, Laravel packages, and web apps.
-        </p>
-
-        <!-- Social Transmission Links -->
-        <div class="transmission-links">
-          <a href="https://github.com/saroven" target="_blank" rel="noopener" class="mag-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/saroven" target="_blank" rel="noopener" class="mag-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-            LinkedIn
-          </a>
-          <a href="https://twitter.com/sarovenbd" target="_blank" rel="noopener" class="mag-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            @sarovenbd
-          </a>
-          <a href="https://dev.to/saroven" target="_blank" rel="noopener" class="mag-btn">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H5.34v4.36h1.24c.38 0 .66-.07.84-.23.19-.16.29-.41.29-.77v-2.36c0-.36-.1-.61-.29-.77zm9.64-.17h-2.18v4.64h2.18c.6 0 1.07-.15 1.4-.46.33-.31.5-.78.5-1.4v-.92c0-.62-.17-1.09-.5-1.4-.33-.31-.8-.46-1.4-.46zM22.5 0H1.5C.67 0 0 .67 0 1.5v21c0 .83.67 1.5 1.5 1.5h21c.83 0 1.5-.67 1.5-1.5v-21c0-.83-.67-1.5-1.5-1.5zM8.88 13.18c0 .83-.28 1.48-.84 1.93-.56.46-1.35.69-2.37.69H3.34V8.2h2.33c1.02 0 1.81.23 2.37.69.56.46.84 1.1.84 1.93v2.36zm4.18 2.62h-2V8.2h2v7.6zm7.44-2.88c0 .92-.32 1.63-.96 2.13-.64.5-1.52.75-2.64.75h-3.66V8.2h3.66c1.12 0 2 .25 2.64.75.64.5.96 1.21.96 2.13v1.84z"/></svg>
-            Dev.to
-          </a>
-          <a href="mailto:saroven.dev@gmail.com" class="mag-btn primary-glow">
-            <span>saroven.dev@gmail.com ↗</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Right featured project -->
-      <div id="architecture" class="cockpit-right tilt-card" data-tilt>
-        <div class="card-spotlight"></div>
-        <div class="featured-top">
-          <span class="featured-label">Featured project</span>
-          <a href="https://packagist.org/packages/saroven/reportify" target="_blank" rel="noopener" class="featured-link">Packagist ↗</a>
-        </div>
-
-        <h3 class="featured-name">laravel-reportify</h3>
-        <p class="featured-desc">
-          Laravel exports that don't crash on large tables. Chunked queries + queue workers, streamed to PDF, Excel, CSV, or ZIP.
-        </p>
-
-        <pre class="featured-code"><code>composer require saroven/reportify</code></pre>
-
-        <ul class="featured-points">
-          <li>Chunked DB reads, low memory</li>
-          <li>Queued jobs via Horizon / Redis</li>
-          <li>PDF · XLSX · CSV · ZIP</li>
-        </ul>
-
-        <div class="featured-actions">
-          <a href="https://github.com/saroven" target="_blank" rel="noopener" class="mag-btn">GitHub repo</a>
-          <a href="#systems" class="mag-btn primary-glow">See how it's used</a>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ============================================================== -->
-    <!-- 2. HIGH-IMPACT METRICS STRIP                                   -->
-    <!-- ============================================================== -->
-    <section class="metrics-strip">
-      <div class="metric-block tilt-card" data-tilt>
-        <div class="card-spotlight"></div>
-        <div class="m-val count-up" data-target="51" id="gh-repos-val">51</div>
-        <div class="m-title">Public repos</div>
-        <div class="m-sub" id="gh-repos-sub">github.com/saroven · HTML, PHP, JS</div>
-      </div>
-      <div class="metric-block tilt-card" data-tilt>
-        <div class="card-spotlight"></div>
-        <div class="m-val" id="gh-followers-val">21</div>
-        <div class="m-title">Followers</div>
-        <div class="m-sub" id="gh-followers-sub">36 following · open to work</div>
-      </div>
-      <div class="metric-block tilt-card" data-tilt>
-        <div class="card-spotlight"></div>
-        <div class="m-val" id="gh-stars-val">7</div>
-        <div class="m-title">Stars earned</div>
-        <div class="m-sub" id="gh-stars-sub">Across own repos · live from GitHub</div>
-      </div>
-      <div class="metric-block tilt-card" data-tilt>
-        <div class="card-spotlight"></div>
-        <div class="m-val">B.Sc. CSE</div>
-        <div class="m-title">Computer Science</div>
-        <div class="m-sub">Green University of Bangladesh</div>
-      </div>
-    </section>
-    <p class="gh-sync-note" id="gh-sync-note">Static snapshot · will sync live from GitHub API on load.</p>
-
-    <!-- ============================================================== -->
-    <!-- 3. PRODUCTION SYSTEMS & CASE STUDIES                           -->
-    <!-- ============================================================== -->
-    <section id="systems" class="showcase-section">
-      <div class="section-lead">
-        <span class="lead-tag">Work</span>
-        <h2 class="lead-title">Selected projects</h2>
-        <p class="lead-desc">Things I've built at work and as open source.</p>
-      </div>
-
-      <div class="cards-grid">
-
-        <!-- Case 1: Quant Fintech Enterprise Systems -->
-        <article class="case-card tilt-card" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="card-accent-bar enterprise"></div>
-          <div class="case-meta">
-            <span class="tag-pill enterprise">Work</span>
-            <span class="meta-org">Quant Fintech Limited</span>
-          </div>
-          <h3 class="case-name">Transaction ledger and reconciliation</h3>
-          <p class="case-body">
-            Double-entry ledger with journals and audit trails. Built to handle concurrent payments with idempotent writes.
+    <!-- Hero -->
+    <section class="hero wrap">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="dot"></span> Dhaka, Bangladesh · Open to work</p>
+          <h1>Mohammad Shah Alam</h1>
+          <p class="role">Software Engineer — Laravel, MySQL, JavaScript</p>
+          <p class="lede">
+            I build web apps, APIs, and internal tools that businesses actually use.
+            Currently at <strong>Quant Fintech Limited</strong>, previously at
+            <strong>Skylark Soft Limited</strong>.
           </p>
-          <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Consistency</span><span class="v">ACID transactions</span></div>
-            <div class="spec-item"><span class="k">Framework</span><span class="v">Laravel</span></div>
-            <div class="spec-item"><span class="k">Storage</span><span class="v">MySQL 8 / InnoDB</span></div>
-            <div class="spec-item"><span class="k">Deployment</span><span class="v">Docker</span></div>
+          <div class="hero-actions">
+            <a href="mailto:shahalam.roven28@gmail.com" class="btn btn-primary">Get in touch</a>
+            <a href="#work" class="btn">See my work</a>
           </div>
-        </article>
-
-        <!-- Case 2: laravel-reportify -->
-        <article class="case-card tilt-card featured-border" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="card-accent-bar open-source"></div>
-          <div class="case-meta">
-            <span class="tag-pill open-source">Open source</span>
-            <span class="meta-org">Packagist</span>
-          </div>
-          <h3 class="case-name">laravel-reportify: streaming exports</h3>
-          <p class="case-body">
-            Export large datasets to PDF, Excel, CSV, and ZIP using chunking and queue workers to keep memory usage flat.
-          </p>
-          <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Memory</span><span class="v text-emerald">Chunked streaming</span></div>
-            <div class="spec-item"><span class="k">Queues</span><span class="v">Horizon / Redis</span></div>
-            <div class="spec-item"><span class="k">Formats</span><span class="v">PDF, XLSX, CSV, ZIP</span></div>
-            <div class="spec-item"><span class="k">Tested</span><span class="v">100k rows</span></div>
-          </div>
-        </article>
-
-        <!-- Case 3: Real-Time Sockets Messaging -->
-        <article class="case-card tilt-card" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="card-accent-bar realtime"></div>
-          <div class="case-meta">
-            <span class="tag-pill realtime">Realtime</span>
-            <span class="meta-org">PHP & WebSockets</span>
-          </div>
-          <h3 class="case-name">Realtime messaging</h3>
-          <p class="case-body">
-            Chat layer with typing indicators and message delivery over WebSockets, backed by Redis pub/sub.
-          </p>
-          <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Protocol</span><span class="v">WebSockets</span></div>
-            <div class="spec-item"><span class="k">Broker</span><span class="v">Redis Pub/Sub</span></div>
-            <div class="spec-item"><span class="k">Backend</span><span class="v">PHP & MySQL</span></div>
-            <div class="spec-item"><span class="k">Client</span><span class="v">Vue.js</span></div>
-          </div>
-        </article>
-
-        <!-- Case 4: Bangla NLP & Sobdojot -->
-        <article class="case-card tilt-card" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="card-accent-bar nlp"></div>
-          <div class="case-meta">
-            <span class="tag-pill nlp">Side project</span>
-            <span class="meta-org">Open source</span>
-          </div>
-          <h3 class="case-name">Sobdojot: 37k Bangla words</h3>
-          <p class="case-body">
-            A 37,000+ entry Bangla word list with phonetic typing and search, for experiments with text input.
-          </p>
-          <div class="spec-matrix">
-            <div class="spec-item"><span class="k">Dataset</span><span class="v">37,000+ words</span></div>
-            <div class="spec-item"><span class="k">Use</span><span class="v">Typing & search</span></div>
-            <div class="spec-item"><span class="k">Input</span><span class="v">Phonetic layout</span></div>
-            <div class="spec-item"><span class="k">Access</span><span class="v">Public repo</span></div>
-          </div>
-        </article>
-
+          <dl class="hero-facts">
+            <div><dt>Now</dt><dd>Quant Fintech Ltd.</dd></div>
+            <div><dt>Before</dt><dd>Skylark Soft Ltd.</dd></div>
+            <div><dt>Degree</dt><dd>B.Sc. CSE, Green University</dd></div>
+            <div><dt>Code</dt><dd><a href="https://github.com/saroven" target="_blank" rel="noopener">51 public repos ↗</a></dd></div>
+          </dl>
+        </div>
+        <div class="hero-photo">
+          <img src="assets/images/profile.jpg" alt="Photo of Mohammad Shah Alam" onerror="this.src='https://avatars.githubusercontent.com/u/33569927?v=4'">
+        </div>
       </div>
     </section>
 
-    <!-- ============================================================== -->
-    <!-- 4. FULL-STACK TECHNICAL ARSENAL                                -->
-    <!-- ============================================================== -->
-    <section id="arsenal" class="arsenal-section">
-      <div class="section-lead">
-        <span class="lead-tag">Skills</span>
-        <h2 class="lead-title">What I work with</h2>
-        <p class="lead-desc">Backend, frontend, and the tooling around them.</p>
-      </div>
-
-      <div class="arsenal-tabs">
-        <button class="arsenal-tab-btn active" data-filter="all">All</button>
-        <button class="arsenal-tab-btn" data-filter="backend">Backend</button>
-        <button class="arsenal-tab-btn" data-filter="frontend">Frontend</button>
-        <button class="arsenal-tab-btn" data-filter="systems">DevOps</button>
-      </div>
-
-      <div class="arsenal-grid" id="arsenal-grid">
-
-        <div class="tool-cell tilt-card" data-cat="backend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">PHP 8.x</span>
-            <span class="tool-tag">Language</span>
-          </div>
-          <p class="tool-desc">Types, attributes, generators, queue workers.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="backend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">Laravel</span>
-            <span class="tool-tag">Framework</span>
-          </div>
-          <p class="tool-desc">Horizon queues, APIs, events, chunked exports.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="backend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">MySQL</span>
-            <span class="tool-tag">RDBMS</span>
-          </div>
-          <p class="tool-desc">Schema design, indexes, transactions, InnoDB locks.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="backend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">Redis</span>
-            <span class="tool-tag">In-Memory</span>
-          </div>
-          <p class="tool-desc">Caching, rate limiting, pub/sub, queues.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">Vue.js 3</span>
-            <span class="tool-tag">Frontend</span>
-          </div>
-          <p class="tool-desc">Composition API, Pinia, dashboards.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">Nuxt.js</span>
-            <span class="tool-tag">SSR / SSG</span>
-          </div>
-          <p class="tool-desc">SSR, routing, SEO pages.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">React</span>
-            <span class="tool-tag">Frontend</span>
-          </div>
-          <p class="tool-desc">Components, hooks, state.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="frontend" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">JavaScript (ES6+)</span>
-            <span class="tool-tag">Language</span>
-          </div>
-          <p class="tool-desc">Async JS, WebSockets, DOM.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">Docker</span>
-            <span class="tool-tag">Containers</span>
-          </div>
-          <p class="tool-desc">Compose stacks: PHP, Nginx, MySQL, Redis.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">Ubuntu Linux</span>
-            <span class="tool-tag">Server OS</span>
-          </div>
-          <p class="tool-desc">Systemd, Supervisor, cron, bash.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">Git & GitHub</span>
-            <span class="tool-tag">VCS</span>
-          </div>
-          <p class="tool-desc">PRs, Pages, releases.</p>
-        </div>
-
-        <div class="tool-cell tilt-card" data-cat="systems" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="tool-top">
-            <span class="tool-name">PhpStorm & VS Code</span>
-            <span class="tool-tag">Tooling</span>
-          </div>
-          <p class="tool-desc">Xdebug, linting, Postman.</p>
-        </div>
-
+    <!-- Services: for clients -->
+    <section id="services" class="section wrap">
+      <p class="kicker">For clients</p>
+      <h2>What I can do for you</h2>
+      <p class="section-sub">Fixed scope, clear communication, code your team can maintain. Typical projects take 2–6 weeks.</p>
+      <div class="cards-3">
+        <article class="card">
+          <h3>Backends &amp; APIs</h3>
+          <p>Laravel applications, REST APIs, auth, queues and background jobs, MySQL schema design.</p>
+          <ul>
+            <li>Business web apps &amp; admin panels</li>
+            <li>Payment-adjacent ledgers &amp; records</li>
+            <li>API for your mobile/web frontend</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Dashboards &amp; frontends</h3>
+          <p>Vue or React interfaces on top of your data — fast, simple, and easy for staff to learn.</p>
+          <ul>
+            <li>Reports &amp; data dashboards</li>
+            <li>CRUD tools that replace spreadsheets</li>
+            <li>Responsive, works on phones</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Exports &amp; automation</h3>
+          <p>Large PDF/Excel/CSV exports that don't crash, scheduled reports, and Docker deploys.</p>
+          <ul>
+            <li>Memory-safe bulk exports</li>
+            <li>Cron jobs &amp; queued pipelines</li>
+            <li>Docker setup &amp; docs</li>
+          </ul>
+        </article>
       </div>
     </section>
 
-    <!-- ============================================================== -->
-    <!-- 5. ENGINEERING CHRONOLOGY & MISSION LOG                        -->
-    <!-- ============================================================== -->
-    <section id="chronology" class="chronology-section">
-      <div class="section-lead">
-        <span class="lead-tag">History</span>
-        <h2 class="lead-title">Experience (2017 — Present)</h2>
-        <p class="lead-desc">Work and education.</p>
+    <!-- Work -->
+    <section id="work" class="section wrap">
+      <p class="kicker">Selected work</p>
+      <h2>Things I've built</h2>
+      <p class="section-sub">My main open-source package. More on <a href="https://github.com/saroven?tab=repositories" target="_blank" rel="noopener">GitHub</a>.</p>
+
+      <div class="work-grid">
+        <article class="card work-featured">
+          <div class="work-meta"><span class="pill">Open source</span><span class="stars" id="gh-stars-reportify">★ 3 · PHP</span></div>
+          <h3>laravel-reportify</h3>
+          <p>Export large Laravel datasets to PDF, Excel, CSV, or ZIP without running out of memory. Chunked reads plus queue workers.</p>
+          <pre class="code"><code>composer require saroven/reportify</code></pre>
+          <div class="work-links">
+            <a href="https://github.com/saroven/laravel-reportify" target="_blank" rel="noopener">GitHub ↗</a>
+            <a href="https://packagist.org/packages/saroven/reportify" target="_blank" rel="noopener">Packagist ↗</a>
+          </div>
+        </article>
       </div>
+    </section>
 
-      <div class="cockpit-timeline">
-
-        <!-- 2023 - Present: Quant Fintech Limited -->
-        <div class="timeline-entry tilt-card" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="t-badge current">Current role</div>
-          <div class="t-time">2023 — Present</div>
-          <h3 class="t-title">Software Engineer · Quant Fintech Limited</h3>
-          <p class="t-desc">
-            Working on ledgers, settlement and reconciliation in Dhaka. Mostly Laravel, MySQL, and Docker.
-          </p>
-          <div class="t-tags">
-            <span>Laravel</span><span>MySQL</span><span>Docker</span><span>Ledgers</span>
+    <!-- Experience: for employers -->
+    <section id="experience" class="section wrap">
+      <p class="kicker">For employers</p>
+      <h2>Experience</h2>
+      <div class="timeline">
+        <article class="t-item">
+          <div class="t-date">2023 — Present</div>
+          <div class="t-body">
+            <h3>Software Engineer · Quant Fintech Limited <span class="t-now">Current</span></h3>
+            <p>Ledgers, settlement, and reconciliation in Dhaka. Laravel, MySQL/InnoDB, Redis queues, Docker.</p>
           </div>
-        </div>
-
-        <!-- Skylark Soft Limited -->
-        <div class="timeline-entry tilt-card" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="t-badge prev">Previous role</div>
-          <div class="t-time">Sep 2022 — Dec 2023</div>
-          <h3 class="t-title">Junior Software Engineer · Skylark Soft Limited</h3>
-          <p class="t-desc">
-            First full-time role. Features and fixes for web apps, shipped with the team.
-          </p>
-          <div class="t-tags">
-            <span>PHP</span><span>JavaScript</span><span>Team</span>
+        </article>
+        <article class="t-item">
+          <div class="t-date">Sep 2022 — Dec 2023</div>
+          <div class="t-body">
+            <h3>Junior Software Engineer · Skylark Soft Limited</h3>
+            <p>First full-time role. Features and fixes for client web apps, shipped with the team.</p>
           </div>
-        </div>
-
-        <!-- Academic Milestone: Green University of Bangladesh -->
-        <div class="timeline-entry tilt-card" data-tilt>
-          <div class="card-spotlight"></div>
-          <div class="t-badge edu">Education</div>
-          <div class="t-time">Graduation</div>
-          <h3 class="t-title">B.Sc. in Computer Science and Engineering</h3>
-          <p class="t-desc">
-            Green University of Bangladesh. Data structures, algorithms, databases, software engineering.
-          </p>
-          <div class="t-tags">
-            <span>Green University</span><span>CSE</span>
+        </article>
+        <article class="t-item">
+          <div class="t-date">Graduation</div>
+          <div class="t-body">
+            <h3>B.Sc. in Computer Science &amp; Engineering</h3>
+            <p>Green University of Bangladesh — data structures, algorithms, databases, software engineering.</p>
           </div>
-        </div>
-
+        </article>
       </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section wrap">
+      <p class="kicker">Skills</p>
+      <h2>What I work with</h2>
+      <div class="skill-groups">
+        <div class="skill-group">
+          <h3>Backend</h3>
+          <p>PHP · Laravel · MySQL · Redis</p>
+        </div>
+        <div class="skill-group">
+          <h3>Frontend</h3>
+          <p>JavaScript · Vue 3 · Nuxt · React · HTML/CSS · Bootstrap</p>
+        </div>
+        <div class="skill-group">
+          <h3>Tools &amp; deploys</h3>
+          <p>Docker · Git &amp; GitHub · Postman · Ubuntu · PhpStorm / VS Code</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GitHub live -->
+    <section class="section wrap">
+      <div class="github-strip">
+        <div class="gh-stat"><strong id="gh-repos-val">51</strong><span>public repos</span></div>
+        <div class="gh-stat"><strong id="gh-followers-val">21</strong><span>followers</span></div>
+        <div class="gh-stat"><strong id="gh-stars-val">7</strong><span id="gh-stars-sub">stars earned</span></div>
+        <div class="gh-cta">
+          <a href="https://github.com/saroven" target="_blank" rel="noopener" class="btn btn-sm">Browse my GitHub ↗</a>
+          <p class="gh-note" id="gh-sync-note">Snapshot · syncs live from the GitHub API.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section wrap contact">
+      <p class="kicker">Contact</p>
+      <h2>Have a project or a role in mind?</h2>
+      <p class="section-sub">One email is enough — tell me what you're trying to build or hire for, and I'll reply within a day.</p>
+      <div class="contact-actions">
+        <a href="mailto:shahalam.roven28@gmail.com" class="btn btn-primary">shahalam.roven28@gmail.com</a>
+        <button class="btn" id="copy-email-btn" type="button">Copy email</button>
+      </div>
+      <ul class="socials">
+        <li><a href="https://github.com/saroven" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://linkedin.com/in/saroven" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="https://twitter.com/sarovenbd" target="_blank" rel="noopener">X / Twitter</a></li>
+        <li><a href="https://dev.to/saroven" target="_blank" rel="noopener">Dev.to</a></li>
+      </ul>
     </section>
 
   </main>
 
-  <!-- Search modal (Ctrl+K) -->
-  <div id="cmd-modal" class="cmd-modal-backdrop">
-    <div class="cmd-dialog">
-      <div class="cmd-input-wrap">
-        <span class="cmd-prompt-glyph">›</span>
-        <input type="text" id="cmd-input" placeholder="Jump to a section, or open GitHub..." autocomplete="off">
-        <span class="cmd-esc-hint">ESC to close</span>
-      </div>
-      <div class="cmd-results" id="cmd-results">
-        <div class="cmd-item" data-jump="#systems">
-          <span class="cmd-icon">→</span>
-          <span class="cmd-text">View featured project</span>
-          <span class="cmd-badge">Go</span>
-        </div>
-        <div class="cmd-item" data-jump="#overview">
-          <span class="cmd-icon">→</span>
-          <span class="cmd-text">About</span>
-          <span class="cmd-badge">Go</span>
-        </div>
-        <div class="cmd-item" data-jump="#systems">
-          <span class="cmd-icon">→</span>
-          <span class="cmd-text">Projects</span>
-          <span class="cmd-badge">Go</span>
-        </div>
-        <div class="cmd-item" data-jump="#arsenal">
-          <span class="cmd-icon">→</span>
-          <span class="cmd-text">Skills</span>
-          <span class="cmd-badge">Go</span>
-        </div>
-        <div class="cmd-item" data-jump="#chronology">
-          <span class="cmd-icon">→</span>
-          <span class="cmd-text">Experience</span>
-          <span class="cmd-badge">Go</span>
-        </div>
-        <div class="cmd-item" data-action="github">
-          <span class="cmd-icon">→</span>
-          <span class="cmd-text">Open GitHub (@saroven)</span>
-          <span class="cmd-badge">Link</span>
-        </div>
-        <div class="cmd-item" data-action="email">
-          <span class="cmd-icon">→</span>
-          <span class="cmd-text">Copy email: saroven.dev@gmail.com</span>
-          <span class="cmd-badge">Copy</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer class="hud-footer">
-    <div class="hud-footer-inner">
-
-      <!-- Status strip -->
-      <div class="footer-telemetry-strip">
-        <div class="telemetry-chip">
-          <span class="chip-beacon online"></span>
-          <span>Open to work</span>
-        </div>
-        <div class="telemetry-chip">
-          <span class="chip-tag">Based in</span>
-          <span>Dhaka, Bangladesh (UTC+6)</span>
-        </div>
-        <div class="telemetry-chip">
-          <span class="chip-tag">GitHub</span>
-          <span>1,721+ commits</span>
-        </div>
-      </div>
-
-      <!-- 4-Column Grid -->
-      <div class="footer-grid">
-
-        <!-- Column 1: Identity -->
-        <div class="footer-col brand-col">
-          <div class="footer-brand-lockup">
-            <div class="monogram-pulse small">
-              <span class="pulse-ring"></span>
-              <span class="monogram-core">SA</span>
-            </div>
-            <div>
-              <div class="f-name">Mohammad Shah Alam</div>
-              <div class="f-title">Software Engineer @ Quant Fintech</div>
-            </div>
-          </div>
-          <p class="f-bio">
-            I build ledger systems, Laravel packages, and web apps. Plain code, tested, documented.
-          </p>
-          <div class="f-credentials-chips">
-            <span class="f-chip">B.Sc. CSE, Green University</span>
-            <span class="f-chip">1,721+ commits</span>
-            <span class="f-chip">On Packagist</span>
-          </div>
-        </div>
-
-        <!-- Column 2: Site -->
-        <div class="footer-col">
-          <div class="f-col-header">Site</div>
-          <ul class="f-link-list">
-            <li><a href="#overview" class="f-link"><span>01</span> About</a></li>
-            <li><a href="#architecture" class="f-link"><span>02</span> Featured project</a></li>
-            <li><a href="#systems" class="f-link"><span>03</span> Projects</a></li>
-            <li><a href="#arsenal" class="f-link"><span>04</span> Skills</a></li>
-            <li><a href="#chronology" class="f-link"><span>05</span> Experience</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 3: Projects -->
-        <div class="footer-col">
-          <div class="f-col-header">Projects</div>
-          <ul class="f-link-list">
-            <li><a href="#systems" class="f-link"><span>→</span> Ledger and reconciliation</a></li>
-            <li><a href="https://packagist.org/packages/saroven/reportify" target="_blank" rel="noopener" class="f-link"><span>→</span> laravel-reportify ↗</a></li>
-            <li><a href="#systems" class="f-link"><span>→</span> Realtime messaging</a></li>
-            <li><a href="#systems" class="f-link"><span>→</span> Sobdojot word list</a></li>
-            <li><a href="https://github.com/saroven?tab=repositories" target="_blank" rel="noopener" class="f-link"><span>→</span> All repos ↗</a></li>
-          </ul>
-        </div>
-
-        <!-- Column 4: Contact -->
-        <div class="footer-col comms-col">
-          <div class="f-col-header">Contact</div>
-          <div class="f-comms-deck">
-            <a href="https://github.com/saroven" target="_blank" rel="noopener" class="f-deck-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-              <span>GitHub (@saroven)</span>
-            </a>
-            <a href="https://linkedin.com/in/saroven" target="_blank" rel="noopener" class="f-deck-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-              <span>LinkedIn (/in/saroven)</span>
-            </a>
-            <a href="https://twitter.com/sarovenbd" target="_blank" rel="noopener" class="f-deck-btn">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              <span>X / Twitter (@sarovenbd)</span>
-            </a>
-            <button id="footer-copy-email-btn" class="f-deck-btn highlight" title="Copy Email to Clipboard">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-              <span id="f-email-text">saroven.dev@gmail.com</span>
-              <span class="f-copy-badge">COPY</span>
-            </button>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Bottom bar -->
-      <div class="footer-baseline">
-        <div class="f-base-left">
-          <span>© 2026 <strong>Mohammad Shah Alam</strong>.</span>
-          <span class="f-sep">•</span>
-          <span>Dhaka, Bangladesh</span>
-        </div>
-        <div class="f-base-right">
-          <div class="f-meta-pills">
-            <span>HTML</span>
-            <span>•</span>
-            <span>CSS</span>
-            <span>•</span>
-            <span>JavaScript</span>
-          </div>
-          <button id="back-to-top-btn" class="back-to-top-btn" title="Back to top">
-            <span>↑ Back to top</span>
-          </button>
-        </div>
-      </div>
-
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© <span id="year">2026</span> Mohammad Shah Alam · Dhaka, Bangladesh</p>
+      <p class="muted">Built by hand with HTML, CSS, and JavaScript.</p>
     </div>
   </footer>
 
